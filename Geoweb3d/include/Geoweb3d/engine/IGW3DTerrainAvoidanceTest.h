@@ -1,0 +1,105 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// Geoweb3d SDK
+// Copyright (c) Geoweb3d, 2008-2017, all rights reserved.
+//
+// This code can be used only under the rights granted to you by the specific
+// Geoweb3d SDK license under which the SDK provided.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#pragma once
+
+#include "../core/GW3DInterFace.h"
+#include "IGW3DAnalysis.h"
+
+/*! Primary namespace */
+namespace Geoweb3d
+{
+	extern "C++"
+	{
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	A Terrain Avoidance analysis. </summary>
+		///
+		/// <remarks>	</remarks>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		struct  IGW3DTerrainAvoidanceTest : public IGW3DAnalysis
+		{
+			virtual ~IGW3DTerrainAvoidanceTest() {}
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Enables/disables . </summary>
+			///
+			/// <remarks>	While disabled,  will not be visible </remarks>
+			///
+			/// <param name="enable">	true to enable, false to disable. </param>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual void put_Enabled(bool enable) = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Gets the enabled state. </summary>
+			///
+			/// <returns>	true if enabled, false if disabled. </returns>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual bool get_Enabled() const = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Enables/disables Terrain Only. </summary>
+			///
+			/// <remarks>	While disabled, Terrain Avoidance Analytic will be run on Terrain and Scene geometry. 
+			///				Otherwise it will only be run on terrain. </remarks>
+			///
+			/// <param name="enable">	true to enable, false to disable. </param>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual void put_TerrainOnly(bool enable) = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Gets the Terrain Only state. </summary>
+			///
+			/// <returns>	true if enabled, false if disabled. </returns>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual bool get_IsTerrainOnly() const = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Sets the reference altitude for the Terrain Avoidance calculation. </summary>
+			///
+			/// <param name="radius">	The outer radius in meters. </param>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual void put_ReferenceAltitude(double altitude) = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Gets the reference altitude for the Terrain Avoidance calculation. </summary>
+			///
+			/// <returns>	The reference altitude in meters. </returns>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual double get_ReferenceAltitude() const = 0;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Assign a color lookup table finalization token. </summary>
+			///
+			/// <remarks>	This function assigns a color lookup table finalization token as the color lookup 
+			///				table that is utilized by this IGW3DTerrainAvoidanceTest. A color lookup finalization
+			///				token is a finalized configuration of an IGW3DColorLookupTablePtr, which is created 
+			///				using the IGW3DSceneGraphContext interface. Needs to be assigned in order to visualize
+			///				the test. </remarks>
+			///
+			/// <param name="color_lut">	The color lookup table. </param>
+			/// 
+			/// <see cref="IGW3DSceneGraphContext, IGW3DColorLookupTablePtr"/>
+			///
+			/// <returns>	GW3D_sOk if succeeded. </returns>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			virtual GW3DResult put_GW3DFinalizationToken(IGW3DColorLookupTableFinalizationTokenPtr color_lut) = 0;
+
+		};
+	}
+}

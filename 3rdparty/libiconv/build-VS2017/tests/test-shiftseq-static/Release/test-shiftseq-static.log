@@ -1,0 +1,2 @@
+﻿  test-shiftseq.c
+c:\gw3d\trunk\3rd_party_opensrc\libiconv\tests\test-shiftseq.c(18): fatal error C1083: Cannot open include file: 'config.h': No such file or directory

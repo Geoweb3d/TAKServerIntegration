@@ -1,0 +1,87 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// Geoweb3d SDK
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
+//
+// This code can be used only under the rights granted to you by the specific
+// Geoweb3d SDK license under which the SDK provided.
+//
+//////////////////////////////////////////////////////////////////////////////
+#pragma once
+
+#include "../core/GW3DInterFace.h"
+
+/*! Primary namespace */
+namespace Geoweb3d
+{
+
+	struct GEOWEB3DENGINE_API IGW3DBearingHelper
+	{
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		   /// <summary>	Sets the location. </summary>
+		   ///
+		   /// <param name="longitude">	The longitude. </param>
+		   /// <param name="latitude"> 	The latitude. </param>
+		   ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void put_SourceLocation(double longitude, double latitude, double altitude) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets the location. </summary>
+		///
+		/// <param name="longitude">	[out] The longitude. </param>
+		/// <param name="latitude"> 	[out] The latitude. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void get_SourceLocation(double& longitude, double& latitude, double& altitude) const = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Sets the rotation. </summary>
+		///
+		/// <param name="heading">	The heading. </param>
+		/// <param name="pitch">  	The pitch. </param>
+		/// <param name="roll">   	The roll. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void put_SourceRotation(double heading, double pitch, double roll) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets the rotation. </summary>
+		///
+		/// <param name="heading">	[out] The heading. </param>
+		/// <param name="pitch">  	[out] The pitch. </param>
+		/// <param name="roll">   	[out] The roll. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void get_SourceRotation(double& heading, double& pitch, double& roll) const = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		   /// <summary>	Sets the location. </summary>
+		   ///
+		   /// <param name="longitude">	The longitude. </param>
+		   /// <param name="latitude"> 	The latitude. </param>
+		   ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void put_TargetLocation(double longitude, double latitude, double altitude) = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets the location. </summary>
+		///
+		/// <param name="longitude">	[out] The longitude. </param>
+		/// <param name="latitude"> 	[out] The latitude. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void get_TargetLocation(double& longitude, double& latitude, double& altitude) const = 0;
+
+		//run the math and get the bearing, pitch, and distance needed for the source to look at the target
+		virtual void calculate_result(double& bearing, double& pitch, double& distance) = 0;
+
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Create a bearing helper object. </summary>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	static GEOWEB3DENGINE_API IGW3DBearingHelperPtr create(unsigned interface_version = GEOWEB3D_INTERFACE_VERSION);
+	};
+
+
+}

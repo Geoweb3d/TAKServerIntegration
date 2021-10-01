@@ -1,0 +1,91 @@
+﻿Build started 9/8/2021 2:43:12 PM.
+Environment at start of build:
+AGSENGINEJAVA = C:\Program Files (x86)\ArcGIS\Engine10.4\
+ALLUSERSPROFILE = C:\ProgramData
+APPDATA = C:\Users\gw3dsystem\AppData\Roaming
+CommonProgramFiles = C:\Program Files (x86)\Common Files
+CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+CommonProgramW6432 = C:\Program Files\Common Files
+COMPUTERNAME = DESKTOP-SAMML3P
+ComSpec = C:\WINDOWS\system32\cmd.exe
+DriverData = C:\Windows\System32\Drivers\DriverData
+EMSDK_PATH = C:\Users\Public\gw3d\COMP\WASM\emsdk
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+FPS_BROWSER_USER_PROFILE_STRING = Default
+HOMEDRIVE = C:
+HOMEPATH = \Users\gw3dsystem
+JAVA_HOME = C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25
+LOCALAPPDATA = C:\Users\gw3dsystem\AppData\Local
+LOGONSERVER = \\DESKTOP-SAMML3P
+MSBuildLoadMicrosoftTargetsReadOnly = true
+MSBUILD_EXE = C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\MSBuild.exe
+NUMBER_OF_PROCESSORS = 48
+NVTOOLSEXT_PATH = C:\Program Files\NVIDIA Corporation\NvToolsExt\
+OneDrive = C:\Users\gw3dsystem\OneDrive
+OneDriveConsumer = C:\Users\gw3dsystem\OneDrive
+OS = Windows_NT
+Path = C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\HID Global\ActivClient\;C:\Program Files\HID Global\ActivClient\;C:\Program Files (x86)\XPlan\XPlan5;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files (x86)\MPE Common\DataFramework;C:\Program Files\MPE Common\GeoTrans;C:\Program Files (x86)\MPE Common\VehicleBin;C:\Program Files\XPlan\XPlan5;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\AOMEI\AOMEI Backupper 5.9.0;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\CMake\bin;C:\Program Files (x86)\IncrediBuild;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\gw3dsystem\AppData\Local\Microsoft\WindowsApps;C:\Users\gw3dsystem\.dotnet\tools;
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PkgDefApplicationConfigFile = e:\temp\gw3dsystem\AppData\Local\Temp\dev6D65.tmp
+PROCESSOR_ARCHITECTURE = x86
+PROCESSOR_ARCHITEW6432 = AMD64
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 63 Stepping 2, GenuineIntel
+PROCESSOR_LEVEL = 6
+PROCESSOR_REVISION = 3f02
+ProgramData = C:\ProgramData
+ProgramFiles = C:\Program Files (x86)
+ProgramFiles(x86) = C:\Program Files (x86)
+ProgramW6432 = C:\Program Files
+PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files\Microsoft Baseline Configuration Analyzer 2\Modules\
+PUBLIC = C:\Users\Public
+ServiceHubLogSessionKey = 1D64A458
+SESSIONNAME = Console
+SVL_INSTALL_DIR_MV_X64 = C:\Program Files (x86)\Software Verification\C++ Memory Validator x64 Evaluation
+SystemDrive = C:
+SystemRoot = C:\WINDOWS
+TEMP = e:\temp\gw3dsystem\AppData\Local\Temp
+ThreadedWaitDialogDpiContext = -4
+TMP = e:\temp\gw3dsystem\AppData\Local\Temp
+USERDOMAIN = DESKTOP-SAMML3P
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-SAMML3P
+USERNAME = gw3dsystem
+USERPROFILE = C:\Users\gw3dsystem
+VisualStudioDir = C:\Users\gw3dsystem\Documents\Visual Studio 2019
+VisualStudioEdition = Microsoft Visual Studio Enterprise 2019
+VisualStudioVersion = 16.0
+VS140COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\
+VSAPPIDDIR = C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\
+VSAPPIDNAME = devenv.exe
+VSLANG = 1033
+VSSKUEDITION = Enterprise
+windir = C:\WINDOWS
+
+Logging verbosity is set to: Normal.     1>Project "C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\tests\gengb18030z\gengb18030z.vcxproj" on node 8 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Release\gengb18030z.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.29.30036\bin\HostX86\x64\CL.exe /c /I..\..\..\src /I..\..\..\srclib /Zi /nologo /W3 /WX- /diagnostics:column /sdl /O2 /Oi /GL /D LIBICONV_DLL /D _CRT_SECURE_NO_WARNINGS /D NDEBUG /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TC /FC /errorReport:prompt ..\..\..\tests\gengb18030z.c
+         gengb18030z.c
+     1>C:\gw3d\trunk\3rd_party_opensrc\libiconv\tests\gengb18030z.c(32,3): warning C4013: '_setmode' undefined; assuming extern returning int
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.29.30036\bin\HostX86\x64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\x64\Release\gengb18030z.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\x64\Release\gengb18030z.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"x64\Release\gengb18030z.iobj" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\x64\Release\gengb18030z.lib" /MACHINE:X64 x64\Release\gengb18030z.obj
+         Generating code
+         Previous IPDB not found, fall back to full compilation.
+         All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         Finished generating code
+         gengb18030z.vcxproj -> C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\x64\Release\gengb18030z.exe
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\gengb18030z.tlog\unsuccessfulbuild".
+         Touching "x64\Release\gengb18030z.tlog\gengb18030z.lastbuildstate".
+     1>Done Building Project "C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\tests\gengb18030z\gengb18030z.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+       "C:\gw3d\trunk\3rd_party_opensrc\libiconv\build-VS2017\tests\gengb18030z\gengb18030z.vcxproj" (Build target) (1) ->
+       (ClCompile target) -> 
+         C:\gw3d\trunk\3rd_party_opensrc\libiconv\tests\gengb18030z.c(32,3): warning C4013: '_setmode' undefined; assuming extern returning int
+
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.81
