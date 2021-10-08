@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -14,28 +14,32 @@
 
 namespace Geoweb3d
 {
-	extern "C++"
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Collection of camera frustum intersection stream results. </summary>
+	///
+	/// <remarks>	This collection is only populated in IGW3DFrustumAnalysisStream::OnStream when 
+	///				the representation being reported has 
+	///				IGW3DFeatureID2DPixelLocationConfiguration::put_Enabled	set to true.
+	/// 
+	///				ONLY supported in representations: model, custom, all shapes, range ring
+	/// </remarks>
+	///				
+	/// <see cref="IGW3DFrustumAnalysisStream"/>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DFeatureFeedbackResultCollection: public IGW3DCollection< IGW3DFeatureFeedbackResult* >
 	{
+		
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Collection of camera frustum intersection stream results. </summary>
-		///
-		/// <remarks>	This collection is only populated in IGW3DFrustumAnalysisStream::OnStream when 
-		///				the representation being reported has 
-		///				IGW3DFeatureID2DPixelLocationConfiguration::put_Enabled	set to true.
-		///				
-		/// <see cref="IGW3DFrustumAnalysisStream"/>
+		/// <summary>	Query whether IGW3DFeatureID2DPixelLocationConfiguration::put_Enabled is set 
+		///				to true on the representation being reported. </summary>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct GW3D_DLL IGW3DFeatureFeedbackResultCollection : public IGW3DCollection< IGW3DFeatureFeedbackResult* >
-		{
-			virtual ~IGW3DFeatureFeedbackResultCollection() {}
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Query whether IGW3DFeatureID2DPixelLocationConfiguration::put_Enabled is set 
-			///				to true on the representation being reported. </summary>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual bool get_WasEnabled() const = 0;
 
-			virtual bool get_WasEnabled() const = 0;
-
-		};
-	}
+	};
 }
+
+
+

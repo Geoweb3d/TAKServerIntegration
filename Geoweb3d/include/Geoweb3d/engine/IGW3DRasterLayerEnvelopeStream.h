@@ -14,30 +14,25 @@
 
 namespace Geoweb3d
 {
-	extern "C++"
+
+	struct IGW3DRequest : public GW3DEnvelope
 	{
-		struct  GW3D_DLL IGW3DRequest : public GW3DEnvelope
+		IGW3DRequest() : raster_width(256), raster_height(256)
 		{
-			virtual ~IGW3DRequest() {}
 
-			IGW3DRequest() : raster_width(256), raster_height(256)
-			{
+		}
 
-			}
+		//will sample to this resolution
+		int raster_width;
+		int raster_height;
+	};
+	struct IGW3DRasterLayerEnvelopeStream : public IGW3DRequest
+	{
+		//note, if you did an async query, this will get called on a different
+		//thread, so make sure you are threadsafe.
+		//one day we can store these up on a Q and a user can gather all the 
+		//requests on whatever thread they wish instead of what we have today
+		virtual bool OnStream(IGW3DRasterLayerEnvelopeStreamResult* result) = 0;
+	};
 
-			//will sample to this resolution
-			int raster_width;
-			int raster_height;
-		};
-		struct  GW3D_DLL IGW3DRasterLayerEnvelopeStream : public IGW3DRequest
-		{
-			virtual ~IGW3DRasterLayerEnvelopeStream() {}
-
-			//note, if you did an async query, this will get called on a different
-			//thread, so make sure you are threadsafe.
-			//one day we can store these up on a Q and a user can gather all the 
-			//requests on whatever thread they wish instead of what we have today
-			virtual bool OnStream(IGW3DRasterLayerEnvelopeStreamResult* result) = 0;
-		};
-	}
 }

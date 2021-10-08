@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -14,51 +14,48 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Frustum analysis settings </summary>
+	///
+	/// <see cref="IGW3DFrameAnalysisContentsConfiguration::get_FrustumAnalysis"/>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	struct IGW3DFrustumAnalysis
 	{
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Frustum analysis settings </summary>
+		/// <summary>	Gets the configuration of analysis results for individual features </summary>
 		///
-		/// <see cref="IGW3DFrameAnalysisContentsConfiguration::get_FrustumAnalysis"/>
+		/// <remarks>	When enabled, representation will provide feedback on individual features / objects
+		///				in the analysis.  Basic information will always be provided, but information on 
+		///				each feature allowed by the IGW3DContentsFilter will only be provided as long as 
+		///				the IGW3DFeatureFeedbackConfiguration is enabled.
+		///
+		///				Additional aspects of how information is reported may also be configured.  For 
+		///				example, reporting of 2D screenspace coordinates can be enabled, or the area within 
+		///				which data is reported can be extended beyond the camera field of view.</remarks>
+		///	
+		///	<see cref="IGW3DVectorRepresentationDriverCollection::Stream"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct  GW3D_DLL IGW3DFrustumAnalysis
-		{
-			virtual ~IGW3DFrustumAnalysis() {}
+		virtual IGW3DFeatureFeedbackConfiguration* get_FeatureFeedbackConfiguration() = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets the configuration of analysis results for individual features </summary>
-			///
-			/// <remarks>	When enabled, representation will provide feedback on individual features / objects
-			///				in the analysis.  Basic information will always be provided, but information on 
-			///				each feature allowed by the IGW3DContentsFilter will only be provided as long as 
-			///				the IGW3DFeatureFeedbackConfiguration is enabled.
-			///
-			///				Additional aspects of how information is reported may also be configured.  For 
-			///				example, reporting of 2D screenspace coordinates can be enabled, or the area within 
-			///				which data is reported can be extended beyond the camera field of view.</remarks>
-			///	
-			///	<see cref="IGW3DVectorRepresentationDriverCollection::Stream"/>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets the configuration of analysis results for individual features </summary>
+		///
+		/// <remarks>	When enabled, representation will provide feedback on individual features / objects
+		///				in the analysis.  Basic information will always be provided, but information on 
+		///				each feature allowed by the IGW3DContentsFilter will only be provided as long as 
+		///				the IGW3DFeatureFeedbackConfiguration is enabled.
+		///
+		///				Additional aspects of how information is reported may also be configured.  For 
+		///				example, reporting of 2D screenspace coordinates can be enabled, or the area within 
+		///				which data is reported can be extended beyond the camera field of view.</remarks>
+		///	
+		///	<see cref="IGW3DVectorRepresentationDriverCollection::Stream"/>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual IGW3DFeatureFeedbackConfiguration* get_FeatureFeedbackConfiguration() = 0;
+		virtual const IGW3DFeatureFeedbackConfiguration* get_FeatureFeedbackConfiguration() const = 0;
+	};
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets the configuration of analysis results for individual features </summary>
-			///
-			/// <remarks>	When enabled, representation will provide feedback on individual features / objects
-			///				in the analysis.  Basic information will always be provided, but information on 
-			///				each feature allowed by the IGW3DContentsFilter will only be provided as long as 
-			///				the IGW3DFeatureFeedbackConfiguration is enabled.
-			///
-			///				Additional aspects of how information is reported may also be configured.  For 
-			///				example, reporting of 2D screenspace coordinates can be enabled, or the area within 
-			///				which data is reported can be extended beyond the camera field of view.</remarks>
-			///	
-			///	<see cref="IGW3DVectorRepresentationDriverCollection::Stream"/>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			virtual const IGW3DFeatureFeedbackConfiguration* get_FeatureFeedbackConfiguration() const = 0;
-		};
-	}
 }

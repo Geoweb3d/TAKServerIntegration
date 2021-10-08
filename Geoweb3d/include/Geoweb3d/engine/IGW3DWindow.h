@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -53,170 +53,166 @@ namespace Geoweb3d
 /// <remarks>	A window must have at least one camera in order for the scene to be rendered.
 /// 			</remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-    extern "C++"
-    {
-        struct  GW3D_DLL IGW3DWindow
-        {
-            virtual ~IGW3DWindow() {}
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets the window coordinates for a camera </summary>
-            ///
-            /// <remarks>	If you set IGW3DCamera::put_NormalizeWindowCoordinates on a camera, and you need
-            /// 			to know the real window coordinates on the window you can use this API. </remarks>
-            ///
-            /// <param name="camera">	The camera. </param>
-            /// <param name="x">	   	[out] window x. </param>
-            /// <param name="y">	   	[out] window y. </param>
-            /// <param name="width"> 	[out] window width. </param>
-            /// <param name="height">	[out] window height. </param>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+struct IGW3DWindow
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets the window coordinates for a camera </summary>
+    ///
+    /// <remarks>	If you set IGW3DCamera::put_NormalizeWindowCoordinates on a camera, and you need
+    /// 			to know the real window coordinates on the window you can use this API. </remarks>
+    ///
+    /// <param name="camera">	The camera. </param>
+    /// <param name="x">	   	[out] window x. </param>
+    /// <param name="y">	   	[out] window y. </param>
+    /// <param name="width"> 	[out] window width. </param>
+    /// <param name="height">	[out] window height. </param>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual void get_CameraWindowCoordinates(IGW3DCameraWPtr camera, int& x, int& y, unsigned int& width, unsigned int& height) = 0;
+    virtual void get_CameraWindowCoordinates( IGW3DCameraWPtr camera ,int &x, int &y, unsigned int &width, unsigned int &height) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Sets the window position. </summary>
-            ///
-            /// <param name="pixel_x">	The pixel x coordinate. </param>
-            /// <param name="pixel_y">	The pixel y coordinate. </param>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Sets the window position. </summary>
+    ///
+    /// <param name="pixel_x">	The pixel x coordinate. </param>
+    /// <param name="pixel_y">	The pixel y coordinate. </param>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual void put_WindowPosition(int pixel_x, int pixel_y) = 0;
+    virtual void put_WindowPosition( int pixel_x, int pixel_y ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Sets the window size. </summary>
-            ///
-            /// <param name="pixel_x">	   	The pixel x coordinate. </param>
-            /// <param name="pixel_y">	   	The pixel y coordinate. </param>
-            /// <param name="pixel_width"> 	Width in pixels. </param>
-            /// <param name="pixel_height">	Height in pixels. </param>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Sets the window size. </summary>
+    ///
+    /// <param name="pixel_x">	   	The pixel x coordinate. </param>
+    /// <param name="pixel_y">	   	The pixel y coordinate. </param>
+    /// <param name="pixel_width"> 	Width in pixels. </param>
+    /// <param name="pixel_height">	Height in pixels. </param>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual void put_WindowSize(int pixel_x, int pixel_y, unsigned int pixel_width, unsigned int pixel_height) = 0;
+    virtual void put_WindowSize( int pixel_x, int pixel_y,  unsigned int pixel_width, unsigned int pixel_height ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets the window size. </summary>
-            ///
-            /// <param name="x">	 	[out] The pixel x coordinate. </param>
-            /// <param name="y">	 	[out] The pixel y coordinate. </param>
-            /// <param name="width"> 	[out] The width in pixels. </param>
-            /// <param name="height">	[out] The height in pixels. </param>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets the window size. </summary>
+    ///
+    /// <param name="x">	 	[out] The pixel x coordinate. </param>
+    /// <param name="y">	 	[out] The pixel y coordinate. </param>
+    /// <param name="width"> 	[out] The width in pixels. </param>
+    /// <param name="height">	[out] The height in pixels. </param>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual void get_WindowSize(int& x, int& y, unsigned int& width, unsigned int& height) const = 0;
+    virtual void get_WindowSize( int &x, int &y,  unsigned int &width, unsigned int &height ) const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Returns the camera that would be rendered at the top most at this pixel location
-            /// 			</summary>
-            ///
-            /// <param name="pixel_x">	The pixel x coordinate. </param>
-            /// <param name="pixel_y">	The pixel y coordinate. </param>
-            ///
-            /// <returns>	null camera if nothing, or camera if something at this location </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Returns the camera that would be rendered at the top most at this pixel location
+    /// 			</summary>
+    ///
+    /// <param name="pixel_x">	The pixel x coordinate. </param>
+    /// <param name="pixel_y">	The pixel y coordinate. </param>
+    ///
+    /// <returns>	null camera if nothing, or camera if something at this location </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual IGW3DCameraWPtr get_TopCamera(int pixel_x, int pixel_y) = 0;
-            virtual const IGW3DCameraWPtr get_TopCamera(int pixel_x, int pixel_y) const = 0;
+    virtual IGW3DCameraWPtr get_TopCamera( int pixel_x, int pixel_y ) = 0;
+	virtual const IGW3DCameraWPtr get_TopCamera( int pixel_x, int pixel_y ) const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets the camera collection. </summary>
-            ///
-            /// <remarks>	Gets a collection containing all cameras that currently exist for this window.
-            /// 			Cameras are also created and closed via the collection. </remarks>
-            ///
-            /// <returns>	the camera collection. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets the camera collection. </summary>
+    ///
+    /// <remarks>	Gets a collection containing all cameras that currently exist for this window.
+    /// 			Cameras are also created and closed via the collection. </remarks>
+    ///
+    /// <returns>	the camera collection. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual IGW3DCameraCollection* get_CameraCollection(bool reset_next_iterator = false) = 0;
+    virtual IGW3DCameraCollection * get_CameraCollection( bool reset_next_iterator = false ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets the window name. </summary>
-            ///
-            /// <remarks>	Gets the window name that was set at window creation. </remarks>
-            ///
-            /// <returns>	the name. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets the window name. </summary>
+    ///
+    /// <remarks>	Gets the window name that was set at window creation. </remarks>
+    ///
+    /// <returns>	the name. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual const char* get_Name() const = 0;
+    virtual const char* get_Name( ) const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Sets the anti-aliasing quality. </summary>
-            ///
-            /// <remarks>	Value should be a power of two.  Higher values will result in better vidual quality,
-            /// 			but with a performance cost.  Transparency is not supported when this is set to 0.
-            /// 			</remarks>
-            ///
-            /// <param name="quality">	The quality. </param>
-            ///
-            /// <returns>	GW3D_sOk is succeeded. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Sets the anti-aliasing quality. </summary>
+    ///
+    /// <remarks>	Value should be a power of two.  Higher values will result in better vidual quality,
+    /// 			but with a performance cost.  Transparency is not supported when this is set to 0.
+    /// 			</remarks>
+    ///
+    /// <param name="quality">	The quality. </param>
+    ///
+    /// <returns>	GW3D_sOk is succeeded. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual	GW3DResult	put_Quality(unsigned quality) = 0;
+    virtual	GW3DResult	put_Quality( unsigned quality  ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets the anti-aliasing quality. </summary>
-            ///
-            /// <returns>	The quality. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets the anti-aliasing quality. </summary>
+    ///
+    /// <returns>	The quality. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual	unsigned	get_Quality() const = 0;
+    virtual	unsigned	get_Quality( ) const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets operating system window handle. </summary>
-            ///
-            /// <remarks>	This is used for associating the 3D window with a parent GUI window. </remarks>
-            ///
-            /// <returns>	The operating system window handle. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets operating system window handle. </summary>
+    ///
+    /// <remarks>	This is used for associating the 3D window with a parent GUI window. </remarks>
+    ///
+    /// <returns>	The operating system window handle. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual OSWinHandle get_OSWinHandle() = 0;
+    virtual OSWinHandle get_OSWinHandle() = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets operating system device that the OpenGL context was created on. </summary>
-            ///
-            /// <remarks>	With Windows 7 and beyond, it is almost certain this will be the primary monitor
-            /// 			(as per the Windows Control Panel) </remarks>
-            ///
-            /// <returns>	the details of this monitor. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets operating system device that the OpenGL context was created on. </summary>
+    ///
+    /// <remarks>	With Windows 7 and beyond, it is almost certain this will be the primary monitor
+    /// 			(as per the Windows Control Panel) </remarks>
+    ///
+    /// <returns>	the details of this monitor. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual IGW3DDisplayDetailsPtr get_Details() = 0;
+    virtual IGW3DDisplayDetailsPtr get_Details() = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets stereo driver </summary>
-            ///
-            /// <remarks>	Gets the stereo driver that the windw was constructed with.</remarks>
-            ///
-            /// <returns>	the stereo driver. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Gets stereo driver </summary>
+	///
+	/// <remarks>	Gets the stereo driver that the windw was constructed with.</remarks>
+	///
+	/// <returns>	the stereo driver. </returns>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual const IGW3DStereoDriverWPtr get_StereoDriver() const = 0;
+	virtual const IGW3DStereoDriverWPtr get_StereoDriver() const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Creates a video. </summary>
-            ///
-            /// <remarks>	Creates a video recording of the window. </remarks>
-            ///
-            /// <param name="file">  	The file. </param>
-            /// <param name="driver">	[in] The codec driver. </param>
-            ///
-            /// <returns>	The new video. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Creates a video. </summary>
+    ///
+    /// <remarks>	Creates a video recording of the window. </remarks>
+    ///
+    /// <param name="file">  	The file. </param>
+    /// <param name="driver">	[in] The codec driver. </param>
+    ///
+    /// <returns>	The new video. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            //virtual IGW3DMediaCenterTaskPtr create_Video( const char *file, IGW3DCodecDriverWPtr &driver ) = 0;
+    //virtual IGW3DMediaCenterTaskPtr create_Video( const char *file, IGW3DCodecDriverWPtr &driver ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets back buffer no reference. </summary>
-            ///
-            /// <remarks>	For those that want to use Direct3D.
-            ///
-            /// 			Do not use: not fully implimented. </remarks>
-            ///
-            /// <returns>	null if it fails, else the back buffer no reference. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Gets back buffer no reference. </summary>
+	///
+	/// <remarks>	For those that want to use Direct3D.
+	///
+	/// 			Do not use: not fully implimented. </remarks>
+	///
+	/// <returns>	null if it fails, else the back buffer no reference. </returns>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            //virtual IDirect3DSurface9 *get_BackBufferNoRef() = 0;
+	//virtual IDirect3DSurface9 *get_BackBufferNoRef() = 0;
 
-        };
-    }
+};
 }

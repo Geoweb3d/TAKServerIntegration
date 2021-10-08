@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="3rdparty">
+      <UniqueIdentifier>{61f01c70-6186-4b67-9aad-f8838f83cd7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{1aaa700c-b0e6-4f76-a359-27220b0cf18d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit">
+      <UniqueIdentifier>{45b7ed78-35ae-4542-b90a-f5fbda53dd79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit\commoncommo">
+      <UniqueIdentifier>{e12b94fd-6576-4b12-8d91-2ed9c68c4e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit\commoncommo\core">
+      <UniqueIdentifier>{ef0b00e6-b266-42d3-88f2-42ef51d1bfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl">
+      <UniqueIdentifier>{bffbe708-1edf-40be-8303-1befa4ef8a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include">
+      <UniqueIdentifier>{5c6cb6fc-49e9-43f3-b7db-f1cc687b83ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf">
+      <UniqueIdentifier>{74afbb6a-2388-45be-b67a-e1d8c557d750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{48e0d717-8f01-4a82-bb01-1583b03715ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TAKServerIntegration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GW3DTAKInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\streamingsocketmanagement.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\takmessage.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\tcpsocketmanagement.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\threadedhandler.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\urlrequestmanager.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\versionimpl.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cloudiomanager.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commo.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commothread.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commotime.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\contactmanager.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cotmessage.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cryptoutil.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\datagramsocketmanagement.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\fileioprovidertracker.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\httpsproxy.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\hwifscanner.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\internalutils.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\missionpackagemanager.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\netsocket.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\plaintextfileioprovider.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platform.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platformthread.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\resolverqueue.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\simplefileiomanager.cpp">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.pb.cc">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GW3DTAKInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GW3DEntityController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commologger.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoresult.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoutils.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoversion.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\contactuid.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\cotmessageio.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\fileioprovider.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\missionpackage.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\netinterface.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\simplefileio.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\cloudio.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commo.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cloudiomanager.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commothread.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commotime.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\contactmanager.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cotmessage.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cryptoutil.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\datagramsocketmanagement.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\fileioprovidertracker.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\httpsproxy.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\hwifscanner.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\internalutils.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\missionpackagemanager.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\netsocket.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\plaintextfileioprovider.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platform.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platformthread.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\protobuf.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\resolverqueue.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\simplefileiomanager.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\streamingsocketmanagement.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\takmessage.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\tcpsocketmanagement.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\threadedhandler.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\urlrequestmanager.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\versionimpl.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.pb.h">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\3rdparty\curl-7.72.0\Win64\LIB Release - DLL Windows SSPI\libcurl.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\3rdparty\openssl-1.1\x64\lib\libcrypto.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\3rdparty\openssl-1.1\x64\lib\libssl.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\3rdparty\protobuf\lib\libprotobuf.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\3rdparty\libxml2\win32\VC10\x64\Release\libxml2.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\..\..\..\..\..\gw3d\trunk\geoweb3d\distribution\examples\Example_Animation_Playback\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-dll\libmicrohttpd-dll.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\Geoweb3d\lib\GW3DCommon.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\Geoweb3d\lib\GW3DAttributeMapper.lib">
+      <Filter>libs</Filter>
+    </Library>
+    <Library Include="..\Geoweb3d\lib\Geoweb3dEngine.lib">
+      <Filter>libs</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.proto">
+      <Filter>3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -14,40 +14,33 @@
 #include <Geoweb3dCore/Geoweb3dTypes.h>
 
 /*! Primary namespace */
-
 namespace Geoweb3d
 {
-        extern "C++"
-        {
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary> </summary>
-        ///
-        /// <remarks></remarks>
-        ///
-        /// <see cref="IGW3DSpatialDatabaseCallback"/>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        struct GW3D_DLL IGW3DSpatialDatabaseCallback
-        {
-            virtual ~IGW3DSpatialDatabaseCallback() {}
-            virtual void found_RecordIndex(const uint64_t& index, const GW3DEnvelope& env) = 0;
-        };
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   /// <summary> </summary>
+   ///
+   /// <remarks></remarks>
+   ///
+   /// <see cref="IGW3DSpatialDatabaseCallback"/>
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   struct IGW3DSpatialDatabaseCallback
+   {
+      virtual void found_RecordIndex(const uint64_t& index, const GW3DEnvelope &env) = 0;
+   };
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary> </summary>
-        ///
-        /// <remarks></remarks>
-        ///
-        /// <see cref="IGW3DSpatialDatabase"/>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        struct GW3D_DLL IGW3DSpatialDatabase
-        {
-            virtual ~IGW3DSpatialDatabase() {}
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   /// <summary> </summary>
+   ///
+   /// <remarks></remarks>
+   ///
+   /// <see cref="IGW3DSpatialDatabase"/>
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+   struct IGW3DSpatialDatabase
+   {
+      virtual GW3DResult put_Data(uint64_t, const GW3DEnvelope &env) = 0;
 
-            virtual GW3DResult put_Data(uint64_t, const GW3DEnvelope& env) = 0;
+      virtual GW3DResult remove_Data(uint64_t, const GW3DEnvelope &env) = 0;
 
-            virtual GW3DResult remove_Data(uint64_t, const GW3DEnvelope& env) = 0;
-
-            virtual GW3DResult search(const GW3DEnvelope& env, IGW3DSpatialDatabaseCallback* cb) = 0;
-        };
-    }
+      virtual GW3DResult search(const GW3DEnvelope &env, IGW3DSpatialDatabaseCallback *cb) = 0;
+   };
 }

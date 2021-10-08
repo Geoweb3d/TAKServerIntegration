@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -44,6 +44,3 @@ GW3D_DEFINE_GUID( GUID_GEOWEB3DDESKTOP_REBRANDING_TOKEN, 0x2ab14817, 0xfcb2, 0x4
 // {52F58F47-1FA0-4748-AB71-5FD77C570830}
 GW3D_DEFINE_GUID(GUID_DYNAMIC_VECTOR, 0x52f58f47, 0x1fa0, 0x4748, 0xab, 0x71, 0x5f, 0xd7, 0x7c, 0x57, 0x8, 0x30);
 
-GW3D_DEFINE_GUID(GUID_GEOWEB3D_SDK_INTEGRATED_BRIDGE_ARBITER, 0x53f58f47, 0x1fa0, 0x4728, 0xac, 0x72, 0x5f, 0xd3, 0x7c, 0x57, 0x8, 0x30);
-
-GW3D_DEFINE_GUID(GUID_GEOWEB3D_SDK_INTEGRATED_BRIDGE_CLIENT, 0x52f58f47, 0x1fa0, 0x4728, 0xac, 0x72, 0x5f, 0xd3, 0x7c, 0x57, 0x8, 0x30);

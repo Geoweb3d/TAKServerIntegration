@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -15,44 +15,41 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Collection of intersection details. </summary>
+	///
+	/// <remarks>	A sortable collection of intersection details reported by a line segment
+	/// 			intersection test. </remarks>
+	///
+	///  <see cref="IGW3DLineSegmentIntersectionTest"/>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DLineSegmentIntersectionDetailCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionDetail* >
 	{
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Collection of intersection details. </summary>
-		///
-		/// <remarks>	A sortable collection of intersection details reported by a line segment
-		/// 			intersection test. </remarks>
-		///
-		///  <see cref="IGW3DLineSegmentIntersectionTest"/>
+		/// <summary>	Values that represent sorting direction. </summary>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct  GW3D_DLL IGW3DLineSegmentIntersectionDetailCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionDetail* >
+		enum SortType
 		{
-			virtual  ~IGW3DLineSegmentIntersectionDetailCollection() {};
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Values that represent sorting direction. </summary>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			enum SortType
-			{
-				/// <summary> Ascending distance (near to far) </summary>
-				Ascending = 0,
-				/// <summary> Descending distance (far to near) </summary>
-				Descending = 1,
-				/// <summary>	. </summary>
-				SortMax = 0xFFFF
-			};
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the sort operation. </summary>
-			///
-			/// <remarks>	Sorts the results based distance. </remarks>
-			///
-			/// <param name="sortype">	The sort type. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			virtual void do_Sort(SortType sort_type) = 0;
+			/// <summary> Ascending distance (near to far) </summary>
+			Ascending = 0,
+			/// <summary> Descending distance (far to near) </summary>
+			Descending = 1,
+			/// <summary>	. </summary>
+			SortMax = 0xFFFF
 		};
-	}
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the sort operation. </summary>
+		///
+		/// <remarks>	Sorts the results based distance. </remarks>
+		///
+		/// <param name="sortype">	The sort type. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		virtual void do_Sort(SortType sort_type) = 0;
+	};
+
 }

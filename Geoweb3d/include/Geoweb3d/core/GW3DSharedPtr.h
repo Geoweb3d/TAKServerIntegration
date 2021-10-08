@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -51,7 +51,7 @@ template<> struct GW3DSharedPtr_traits<void>
 
 template< class X, class Y, class T > inline void gw3dsp_enable_shared_from_this( Geoweb3d::GW3DSharedPtr<X> const * ppx, Y const * py, Geoweb3d::enable_shared_from_this< T > const * pe )
 {
-    if( pe != nullptr )
+    if( pe != 0 )
     {
         pe->_internal_accept_owner( ppx, const_cast< Y* >( py ) );
     }
@@ -59,7 +59,7 @@ template< class X, class Y, class T > inline void gw3dsp_enable_shared_from_this
 
 template< class X, class Y, class T > inline void gw3dsp_enable_shared_from_this( Geoweb3d::GW3DSharedPtr<X> * ppx, Y const * py, Geoweb3d::enable_shared_from_this2< T > const * pe )
 {
-    if( pe != nullptr )
+    if( pe != 0 )
     {
         pe->_internal_accept_owner( ppx, const_cast< Y* >( py ) );
     }
@@ -85,7 +85,7 @@ public:
     typedef T * pointer;
     typedef typename detail::GW3DSharedPtr_traits<T>::reference reference;
 
-    GW3DSharedPtr(): px(nullptr), pn()
+    GW3DSharedPtr(): px(0), pn()
     {
     }
 
@@ -121,7 +121,7 @@ public:
     }
 
     template<class Y>
-    GW3DSharedPtr( GW3DWeakPtr<Y> const & r, detail::sp_nothrow_tag ): px( nullptr ), pn( r.pn,detail::sp_nothrow_tag() ) // never throws
+    GW3DSharedPtr( GW3DWeakPtr<Y> const & r, detail::sp_nothrow_tag ): px( 0 ), pn( r.pn,detail::sp_nothrow_tag() ) // never throws
     {
         if( !pn.empty() )
         {
@@ -154,7 +154,7 @@ public:
     template<class Y>
     GW3DSharedPtr(GW3DSharedPtr<Y> const & r,detail::dynamic_cast_tag): px(dynamic_cast<element_type *>(r.px)), pn(r.pn)
     {
-        if(px == nullptr) // need to allocate new counter -- the cast failed
+        if(px == 0) // need to allocate new counter -- the cast failed
         {
             pn =detail::gw3d_shared_count();
         }
@@ -163,7 +163,7 @@ public:
     template<class Y>
     GW3DSharedPtr(GW3DSharedPtr<Y> const & r,detail::polymorphic_cast_tag): px(dynamic_cast<element_type *>(r.px)), pn(r.pn)
     {
-        if(px == nullptr)
+        if(px == 0)
         {
             //printf("GW3D Bad Cast\n");
         }
@@ -230,12 +230,12 @@ public:
 
     operator unspecified_bool_type() const // never throws
     {
-        return px == nullptr? nullptr: &this_type::px;
+        return px == 0? 0: &this_type::px;
     }
     // operator! is redundant, but some compilers need it
     bool operator! () const // never throws
     {
-        return px == nullptr;
+        return px == 0;
     }
 
     bool unique() const // never throws

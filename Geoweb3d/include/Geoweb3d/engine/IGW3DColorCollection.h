@@ -14,33 +14,31 @@
 
 namespace Geoweb3d
 {
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Collection of colors with user defined attributes. </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+struct IGW3DColorCollection : public IGW3DConstCollection< const IGW3DColor* >
+{
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// <summary>	Collection of colors with user defined attributes. </summary>
+    /// <summary>	Array indexer operator. </summary>
+    ///
+    /// <param name="index">	Zero-based index of the color. </param>
+    ///
+    /// <returns>	The indexed value. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    extern "C++"
-    {
-        struct GW3D_DLL IGW3DColorCollection : public IGW3DConstCollection< const IGW3DColor* >
-        {
-            virtual ~IGW3DColorCollection() {}
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Array indexer operator. </summary>
-            ///
-            /// <param name="index">	Zero-based index of the color. </param>
-            ///
-            /// <returns>	The indexed value. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual const IGW3DColor* operator[](unsigned long index) const = 0;
+    virtual const IGW3DColor* operator[](  unsigned long index ) const = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Gets at index. </summary>
-            ///
-            /// <param name="index">	Zero-based index of the color. </param>
-            ///
-            /// <returns>	at index. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Gets at index. </summary>
+    ///
+    /// <param name="index">	Zero-based index of the color. </param>
+    ///
+    /// <returns>	at index. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual const IGW3DColor* get_AtIndex(unsigned long index) const = 0;
-        };
-    }
+    virtual const IGW3DColor* get_AtIndex( unsigned long index ) const = 0;
+};
+
 }

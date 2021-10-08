@@ -1,25 +1,31 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2011, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
 //
 //////////////////////////////////////////////////////////////////////////////
 #pragma once
+/*! @file GeometryType.h */
 
 #include <stdint.h>
 #include "GW3DResults.h"
-#include "RasterTypes.h"
+
 ////////////////////////////////////////////////////////////
 /// Define a low-level window handle type, specific to
 /// each platform
 ////////////////////////////////////////////////////////////
 
 
+
+/*! Primary namespace */
+namespace Geoweb3d
+{
+
 #ifdef __ANDROID__
-struct ANativeWindow;
+	struct ANativeWindow;
 typedef ANativeWindow *OSWinHandle;
 #elif defined(__linux__) 
 typedef unsigned long OSWinHandle;
@@ -27,12 +33,7 @@ typedef unsigned long OSWinHandle;
  /*HWND so we don't need to include windows.h here
    as we don't want to assume LEAN_AND_MEAN etc.*/
 typedef void* OSWinHandle;
-#else
-typedef void* OSWinHandle;
 #endif
-
-namespace Geoweb3d
-{
 
 
 typedef struct _GW3D_GUID
@@ -92,13 +93,21 @@ typedef struct _GW3D_GUID
 
    typedef void (*GeoWeb3d_InfoFunction)(const char *,...);
 
+   namespace Raster
+   {
+		struct RasterSourceHandle_;
+		typedef RasterSourceHandle_* RasterSourceHandle;
+
+		struct RasterCache;
+   }
+ 	
 	namespace SDK_Timers
 	{
 		/*! Opaque stopwatch handle */
 		struct StopWatchHandle_;
 
 		typedef StopWatchHandle_* StopWatchHandle;
-	}
+	};
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Values that represent GeometryType. </summary>

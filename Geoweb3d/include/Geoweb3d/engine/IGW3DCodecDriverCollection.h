@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -15,34 +15,31 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Collection of codec drivers. </summary>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DCodecDriverCollection : public IGW3DCollection< IGW3DCodecDriverWPtr >
 	{
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Collection of codec drivers. </summary>
+		/// <summary>	Array indexer operator. </summary>
+		///
+		/// <param name="index">	Zero-based index of the codec driver. </param>
+		///
+		/// <returns>	The indexed value. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct GW3D_DLL IGW3DCodecDriverCollection : public IGW3DCollection< IGW3DCodecDriverWPtr >
-		{
-			virtual ~IGW3DCodecDriverCollection() {}
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Array indexer operator. </summary>
-			///
-			/// <param name="index">	Zero-based index of the codec driver. </param>
-			///
-			/// <returns>	The indexed value. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual const IGW3DCodecDriverWPtr operator[](unsigned long index) const = 0;
 
-			virtual const IGW3DCodecDriverWPtr operator[](unsigned long index) const = 0;
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets at index. </summary>
+		///
+		/// <param name="index">	Zero-based index of the codec driver. </param>
+		///
+		/// <returns>	at index. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets at index. </summary>
-			///
-			/// <param name="index">	Zero-based index of the codec driver. </param>
-			///
-			/// <returns>	at index. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			virtual const IGW3DCodecDriverWPtr get_AtIndex(unsigned long index) const = 0;
-		};
-	}
+		virtual const IGW3DCodecDriverWPtr get_AtIndex(unsigned long index) const = 0;
+	};
 }

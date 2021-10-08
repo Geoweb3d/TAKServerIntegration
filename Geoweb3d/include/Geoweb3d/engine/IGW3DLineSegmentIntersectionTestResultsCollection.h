@@ -16,21 +16,17 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
-	{
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Collection of line segment intersection tests that have results for the last frame.
-		/// 			</summary>
-		///
-		/// <remarks>	This collection contains only those intersection tests that has results in the
-		/// 			last frame.  This means you could theoretically have hundreds of intersection
-		/// 			tests, where if only one test had an intersection, this collection would have a
-		/// 			size of 1. </remarks>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Collection of line segment intersection tests that have results for the last frame.
+	/// 			</summary>
+	///
+	/// <remarks>	This collection contains only those intersection tests that has results in the
+	/// 			last frame.  This means you could theoretically have hundreds of intersection
+	/// 			tests, where if only one test had an intersection, this collection would have a
+	/// 			size of 1. </remarks>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct  GW3D_DLL IGW3DLineSegmentIntersectionTestResultsCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionTestWPtr >
-		{
-			virtual  ~IGW3DLineSegmentIntersectionTestResultsCollection() {};
-		};
-	}
+	struct IGW3DLineSegmentIntersectionTestResultsCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionTestWPtr >
+	{
+	};
 }

@@ -1,15 +1,14 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef GEOWEB_COORDINATE_EXPORTS_H
-#define GEOWEB_COORDINATE_EXPORTS_H
+#pragma once
 
 #include "Geoweb3dExports.h"
 
@@ -39,7 +38,7 @@ namespace Geoweb3d
 /// 								in degrees. </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void CartesianToPolar( const double &x, const double &y, const double &z, double& alpha, double& beta, double& r, bool target_radians = true );
+GEOWEB3DENGINE_API void CartesianToPolar( const double &x, const double &y, const double &z, double& alpha, double& beta, double& r, bool target_radians = true );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Cartesian to geodetic conversion. </summary>
@@ -56,7 +55,7 @@ GW3D_DLL void CartesianToPolar( const double &x, const double &y, const double &
 /// <param name="target_radians">	(optional) If true, then longitude & latitude will be in radians, else in degrees. </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void CartesianToGeodetic( const double &x, const double &y, const double &z, double& longitude, double& latitude, double& r, bool target_radians = true );
+GEOWEB3DENGINE_API void CartesianToGeodetic( const double &x, const double &y, const double &z, double& longitude, double& latitude, double& r, bool target_radians = true );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Polar to cartesian conversion. </summary>
@@ -74,7 +73,7 @@ GW3D_DLL void CartesianToGeodetic( const double &x, const double &y, const doubl
 /// 								radians, else degrees. </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void PolarToCartesian( const double &alpha, const double &beta, const double &r, double& x, double& y, double& z, bool source_radians = true );
+GEOWEB3DENGINE_API void PolarToCartesian( const double &alpha, const double &beta, const double &r, double& x, double& y, double& z, bool source_radians = true );
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +89,7 @@ GW3D_DLL void PolarToCartesian( const double &alpha, const double &beta, const d
 /// 								radians, else degrees </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void GeodeticToCartesian( const double &lon, const double &lat, const double &r, double& x, double& y, double& z, bool source_radians = true );
+GEOWEB3DENGINE_API void GeodeticToCartesian( const double &lon, const double &lat, const double &r, double& x, double& y, double& z, bool source_radians = true );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets a quaternion. </summary>
@@ -115,7 +114,7 @@ GW3D_DLL void GeodeticToCartesian( const double &lon, const double &lat, const d
 /// <param name="qw">	  	[out] W parameter of the quat </param>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void GetQuaternion
+GEOWEB3DENGINE_API void GetQuaternion
 			( 
 				const double &lon, const double& lat, const double &elev,
 				const double &heading, const double &pitch, const double &roll,
@@ -130,7 +129,7 @@ GW3D_DLL void GetQuaternion
 /// <returns>	The radius of the earth sphere. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL double MajorRadius();
+GEOWEB3DENGINE_API double MajorRadius();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Page level to meter radius. </summary>
@@ -149,10 +148,7 @@ GW3D_DLL double MajorRadius();
 /// <see cref="Geoweb3d::IGW3DInitializationConfiguration::put_TerrainMaxLODDepth"/>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL double PageLevelToMeterRadius( int page_level );
+GEOWEB3DENGINE_API double PageLevelToMeterRadius( int page_level );
 
 	}
 }
-
-
-#endif

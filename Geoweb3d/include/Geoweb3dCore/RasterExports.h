@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -33,7 +33,7 @@ namespace Geoweb3d
 		/// <remarks>	This is a proof-of-concept API that will enable a global behavior where each  
 		///				layer of overlapping imagery will be blended by 50%.</remarks>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		GW3D_DLL void  put_EnableGlobalRasterBlending(/*in*/ bool enable );
+		GEOWEB3DENGINE_API void  put_EnableGlobalRasterBlending(/*in*/ bool enable );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Get the enabled state for global raster blending. </summary>
@@ -41,7 +41,7 @@ namespace Geoweb3d
 		/// <remarks>	This is a proof-of-concept API that will enable a global behavior where each  
 		///				layer of overlapping imagery will be blended by 50%.</remarks>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		GW3D_DLL bool  get_EnableGlobalRasterBlending( );
+		GEOWEB3DENGINE_API bool  get_EnableGlobalRasterBlending( );
 
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +52,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult  SetOneClickDatabaseDirectory(/*in*/ const char* directory );
+		GEOWEB3DENGINE_API GW3DResult  SetOneClickDatabaseDirectory(/*in*/ const char* directory );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Loads imagery from cache. </summary>
@@ -65,7 +65,7 @@ namespace Geoweb3d
 		/// <returns>	The imagery from cache. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult  LoadImageryFromCache(/*in*/ const char* filename, RasterCache const& cache, Imagery::ImageryLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
+		GEOWEB3DENGINE_API GW3DResult  LoadImageryFromCache(/*in*/ const char* filename, RasterCache const& cache, Imagery::ImageryLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Loads dem from cache. </summary>
@@ -78,52 +78,50 @@ namespace Geoweb3d
 		/// <returns>	The dem from cache. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult  LoadDemFromCache(/*in*/ const char* filename, RasterCache const& cache, Dem::DemLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
+		GEOWEB3DENGINE_API GW3DResult  LoadDemFromCache(/*in*/ const char* filename, RasterCache const& cache, Dem::DemLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	A raster query. </summary>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		extern "C++"
+
+		class RasterQuery
 		{
-			class GW3D_DLL RasterQuery
-			{
-			public:
+		public:
 
-				////////////////////////////////////////////////////////////////////////////////////////////////////
-				/// <summary>	Default constructor. </summary>
-				////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Default constructor. </summary>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				RasterQuery() { }
+			RasterQuery() { }
 
-				////////////////////////////////////////////////////////////////////////////////////////////////////
-				/// <summary>	Destructor. </summary>
-				////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Destructor. </summary>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				virtual ~RasterQuery() { }
+			virtual ~RasterQuery() { }
 
-				////////////////////////////////////////////////////////////////////////////////////////////////////
-				/// <summary>	Dem query result. </summary>
-				///
-				/// <param name="handle">	 		The raster handle. </param>
-				/// <param name="used_for_scene">	true if this is the elevation raster you will see when rendered.
-				/// 								</param>
-				////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Dem query result. </summary>
+			///
+			/// <param name="handle">	 		The raster handle. </param>
+			/// <param name="used_for_scene">	true if this is the elevation raster you will see when rendered.
+			/// 								</param>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				virtual void Dem(RasterSourceHandle handle, bool used_for_scene) = 0;
+			virtual void Dem(RasterSourceHandle handle, bool used_for_scene ) = 0;
 
-				////////////////////////////////////////////////////////////////////////////////////////////////////
-				/// <summary>	Imagery query result. </summary>
-				///
-				/// <param name="handle">  	The raster handle. </param>
-				/// <param name="priority">	The image priority (the highest priority is what gets rendered). </param>
-				/// <param name="isactive">	true if active. </param>
-				/// 
-				/// <see cref="Imagery::LoadImagery"/>
-				////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			/// <summary>	Imagery query result. </summary>
+			///
+			/// <param name="handle">  	The raster handle. </param>
+			/// <param name="priority">	The image priority (the highest priority is what gets rendered). </param>
+			/// <param name="isactive">	true if active. </param>
+			/// 
+			/// <see cref="Imagery::LoadImagery"/>
+			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				virtual void Imagery(RasterSourceHandle handle, int priority, bool isactive) = 0;
-			};
-		}
+			virtual void Imagery(RasterSourceHandle handle, int priority, bool isactive ) = 0;
+		};
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Stream raster query. </summary>
@@ -136,7 +134,7 @@ namespace Geoweb3d
 		/// <returns>	GW3D_sOk if success </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult  StreamRasterQuery( const GW3DGeometry *geom, RasterQuery& stream );
+		GEOWEB3DENGINE_API GW3DResult  StreamRasterQuery( const GW3DGeometry *geom, RasterQuery& stream );
 
 //SKIP-CODE-BEGIN
 
@@ -145,21 +143,21 @@ namespace Geoweb3d
 		//////// *	@brief Fetch the number of registered drivers. 
 		//////// *	@param[retval] number of drivers registered
 		//////// */
-		////////GW3D_DLL int	GetRasterDriverCount();
+		////////GEOWEB3DENGINE_API int	GetRasterDriverCount();
 
 		/////////**
 		//////// *	@brief Fetch the indicated driver. 
 		//////// *	@param[in] the name of the driver. 
 		//////// *	@param[retval] the driver, or NULL if no driver with that name is found 
 		//////// */
-		////////GW3D_DLL const RasterDriverHandle		GetRasterDriverByName ( const char *pszName);
+		////////GEOWEB3DENGINE_API const RasterDriverHandle		GetRasterDriverByName ( const char *pszName);
 
 		/////////**
 		//////// *	@brief Fetch the indicated driver. 
 		//////// *	@param[in] the driver index, from 0 to GetRasterDriverCount()-1.
 		//////// *	@param[reval] the driver, or NULL if iDriver is out of range
 		//////// */
-		////////GW3D_DLL const RasterDriverHandle		GetRasterDriverByIndex ( unsigned int index );
+		////////GEOWEB3DENGINE_API const RasterDriverHandle		GetRasterDriverByIndex ( unsigned int index );
 
 		/////////**
 		//////// *	@brief Fetch name of driver (file format) of the raster driver. 
@@ -168,14 +166,14 @@ namespace Geoweb3d
 		//////// *	@param[in] the driver handle
 		//////// *	@param[retval] name of this driver.
 		//////// */
-		////////GW3D_DLL const char*	GetName	( const RasterDriverHandle driver );
+		////////GEOWEB3DENGINE_API const char*	GetName	( const RasterDriverHandle driver );
 
 		/////////**
 		////////*	@brief Fetch the driver this raster source was opened/created with
 		////////*	@param[in] the raster
 		////////*	@param[retval] the driver, or NULL if failure
 		////////*/
-		////////GW3D_DLL const RasterDriverHandle		GetRasterDriverByRasterSource ( const RasterSourceHandle rs );
+		////////GEOWEB3DENGINE_API const RasterDriverHandle		GetRasterDriverByRasterSource ( const RasterSourceHandle rs );
 
 		/////////**
 		//////// *	@brief Attempt to open file/connection
@@ -187,29 +185,29 @@ namespace Geoweb3d
 		//////// *				by deleting the object when it is no longer needed. 
 		//////// */
 		////////		
-		////////GW3D_DLL GW3DResult OpenRasterSource( const char* url, const RasterDriverHandle driver = 0, const PropertyGroup* rasterdriverproperties = 0, /*out*/ RasterSourceHandle &handle );
+		////////GEOWEB3DENGINE_API GW3DResult OpenRasterSource( const char* url, const RasterDriverHandle driver = 0, const PropertyGroup* rasterdriverproperties = 0, /*out*/ RasterSourceHandle &handle );
 
 		/////////**
 		////////*  @brief Returns the number of layers/color channels within the raster
 		////////*  @param[in] datasource handle
 		////////*  @param[reval] number of layers
 		////////*/
-		////////GW3D_DLL int  GetLayerCount ( RasterSourceHandle ds );
+		////////GEOWEB3DENGINE_API int  GetLayerCount ( RasterSourceHandle ds );
 
 		/////////**
-		//////// * @fn GW3D_DLL GW3DResult SetUserDataPtr(RasterSourceHandle, void*p )
+		//////// * @fn GEOWEB3DENGINE_API GW3DResult SetUserDataPtr(RasterSourceHandle, void*p )
 		//////// * @brief ability to set a pointer to your own datastructure
 		//////// * @param[in] handle The unique identifier
 		//////// */
-		////////GW3D_DLL GW3DResult SetUserDataPtr( RasterSourceHandle handle, void *p );
+		////////GEOWEB3DENGINE_API GW3DResult SetUserDataPtr( RasterSourceHandle handle, void *p );
 
 		/////////**
-		//////// * @fn GW3D_DLL const char* SetUserDataPtr(RasterSourceHandle )
+		//////// * @fn GEOWEB3DENGINE_API const char* SetUserDataPtr(RasterSourceHandle )
 		//////// * @brief gets the pointer set by SetUserDataPtr
 		//////// * @param[in] handle The unique identifier
 		//////// * returns null of not set.
 		//////// */
-		////////GW3D_DLL void* GetUserDataPtr( const RasterSourceHandle  handle );
+		////////GEOWEB3DENGINE_API void* GetUserDataPtr( const RasterSourceHandle  handle );
 
 		/////////**
 		//////// *	@brief Query the information about a raster, including extents, number of layers, type, and field definitions
@@ -217,26 +215,26 @@ namespace Geoweb3d
 		//////// *	@param[out] params raster information if query is successful
 		//////// *	@return GW3D_sOk if successful 
 		//////// */
-		//////////GW3D_DLL GW3DResult QueryLayerInformation(/*in*/ const LayerHandle layerhandle, /*out*/QueryLayerParams& params );
+		//////////GEOWEB3DENGINE_API GW3DResult QueryLayerInformation(/*in*/ const LayerHandle layerhandle, /*out*/QueryLayerParams& params );
 
 		/////////**
 		////////*  @brief Returns the name of the data source. 
 		////////*  @param[in] datasource handle
 		////////*  @param[reval] character array/string of the datasource name
 		////////*/
-		////////GW3D_DLL const char *  GetName ( const RasterSourceHandle ds );
+		////////GEOWEB3DENGINE_API const char *  GetName ( const RasterSourceHandle ds );
 
 
-		////////GW3D_DLL IGW3DSpatialReferencePtr GetSpatialReference( const  RasterSourceHandle  handle );
+		////////GEOWEB3DENGINE_API IGW3DSpatialReferencePtr GetSpatialReference( const  RasterSourceHandle  handle );
 
-		////////GW3D_DLL void SetSpatialReference( const RasterSourceHandle  handle, const IGW3DSpatialReferencePtr  ref );
+		////////GEOWEB3DENGINE_API void SetSpatialReference( const RasterSourceHandle  handle, const IGW3DSpatialReferencePtr  ref );
 
 		/////////**
 		//////// * This function returns the default raster representation properties
 		//////// * If an individual feature within a vector layer has never been configured via SetProperties, 
 		//////// *	This memory is owned by the SDK and should not be deallocated.
 		//////// */
-		////////GW3D_DLL const PropertyGroup* GetRepresentationRasterDefaultProperties( /*in*/ RasterSourceHandle handle );
+		////////GEOWEB3DENGINE_API const PropertyGroup* GetRepresentationRasterDefaultProperties( /*in*/ RasterSourceHandle handle );
 
 		/////////**
 		////////*  @fn RepresentAs
@@ -246,8 +244,8 @@ namespace Geoweb3d
 		////////*	The list of representations can be found through QueryKnownRepresentations.
 		////////*
 		////////*/
-		////////GW3D_DLL GW3DResult 	RepresentAs(/*in*/ RasterSourceHandle rh,	/*in*/ RasterDriverHandle driverhandle,	/*in*/ const RepresentationLayerCreationParameter &params,	/*out*/ RepresentationRasterHandle &rethandle );
-		////////GW3D_DLL const char *GetName( RepresentationRasterHandle handle );
+		////////GEOWEB3DENGINE_API GW3DResult 	RepresentAs(/*in*/ RasterSourceHandle rh,	/*in*/ RasterDriverHandle driverhandle,	/*in*/ const RepresentationLayerCreationParameter &params,	/*out*/ RepresentationRasterHandle &rethandle );
+		////////GEOWEB3DENGINE_API const char *GetName( RepresentationRasterHandle handle );
 
 		//end of start of new clike interface
 
@@ -414,13 +412,13 @@ namespace Geoweb3d
 		//};
 
 
-	//	GW3D_DLL GW3DResult OpenRaster(   /*in*/ const char* filename, /*out*/ unsigned* file_handle );
-	//	GW3D_DLL GW3DResult RemoveRaster( /*in*/ unsigned file_handle );
-	//	GW3D_DLL GW3DResult QueryRaster(  /*in*/ const unsigned file_handle, /*out*/RasterQuery& raster_info );
-	//	GW3D_DLL GW3DResult RepresentRasterAs(/*(dem or imagery or mask? or blend?)*/ /*out*/ unsigned* representation_handle );
-	//	GW3D_DLL GW3DResult ApplyDemPropertiesToRaster( const unsigned representation_handle, const DemLoadProperties &props );
-	//	GW3D_DLL GW3DResult ApplyImageryPropertiesToRaster(const unsigned representation_handle, const ImageryLoadProperties &props );
-	//	GW3D_DLL GW3DResult ExportVectorToRaster( /*in*/ const char* raster_export_name, /*in*/const unsigned handle, /*in*/const char* layer_name, /*in*/ const VectorExport &props );
+	//	GEOWEB3DENGINE_API GW3DResult OpenRaster(   /*in*/ const char* filename, /*out*/ unsigned* file_handle );
+	//	GEOWEB3DENGINE_API GW3DResult RemoveRaster( /*in*/ unsigned file_handle );
+	//	GEOWEB3DENGINE_API GW3DResult QueryRaster(  /*in*/ const unsigned file_handle, /*out*/RasterQuery& raster_info );
+	//	GEOWEB3DENGINE_API GW3DResult RepresentRasterAs(/*(dem or imagery or mask? or blend?)*/ /*out*/ unsigned* representation_handle );
+	//	GEOWEB3DENGINE_API GW3DResult ApplyDemPropertiesToRaster( const unsigned representation_handle, const DemLoadProperties &props );
+	//	GEOWEB3DENGINE_API GW3DResult ApplyImageryPropertiesToRaster(const unsigned representation_handle, const ImageryLoadProperties &props );
+	//	GEOWEB3DENGINE_API GW3DResult ExportVectorToRaster( /*in*/ const char* raster_export_name, /*in*/const unsigned handle, /*in*/const char* layer_name, /*in*/ const VectorExport &props );
 		
 //SKIP-CODE-END
 

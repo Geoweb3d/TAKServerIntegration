@@ -11,13 +11,6 @@ namespace Geoweb3d
 		struct RasterSourceHandle_;
 		typedef RasterSourceHandle_* RasterSourceHandle;
 
-		struct RasterSourceHandleWrapper
-		{
-			RasterSourceHandleWrapper() : handle(nullptr)
-			{}
-			RasterSourceHandle_* handle;
-
-		};
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	A raster cache. </summary>
 		///

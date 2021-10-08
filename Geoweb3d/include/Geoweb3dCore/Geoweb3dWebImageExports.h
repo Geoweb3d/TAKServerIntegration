@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -34,7 +34,7 @@ namespace Geoweb3d
 		/// <see cref="OpenUrl"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL const IGW3DImageWPtr get_Image( unsigned handle, IGW3DImageCollectionPtr &collection, GW3DResult &result );
+		GEOWEB3DENGINE_API const IGW3DImageWPtr get_Image( unsigned handle, IGW3DImageCollectionPtr &collection, GW3DResult &result );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Opens an URL using the web image streamer. </summary>
@@ -52,7 +52,7 @@ namespace Geoweb3d
 		/// <see cref="get_Image"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult OpenUrl (/*in*/ const char* unique_name , /*in*/ const char* url, /*in*/ unsigned refresh_rate, /*out*/ unsigned &handle);
+		GEOWEB3DENGINE_API GW3DResult OpenUrl (/*in*/ const char* unique_name , /*in*/ const char* url, /*in*/ unsigned refresh_rate, /*out*/ unsigned &handle);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets the 'no image' image. </summary>
@@ -65,7 +65,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult SetNoImage(/*in*/unsigned handle, /*in*/ const char* filename );
+		GEOWEB3DENGINE_API GW3DResult SetNoImage(/*in*/unsigned handle, /*in*/ const char* filename );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Automatically write any error into the image. </summary>
@@ -77,7 +77,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult AutoSetAnyErrorIntoImage(/*in*/unsigned handle, /*in*/ bool enabled, /*in*/ const char* legend );
+		GEOWEB3DENGINE_API GW3DResult AutoSetAnyErrorIntoImage(/*in*/unsigned handle, /*in*/ bool enabled, /*in*/ const char* legend );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Automatic resize image. </summary>
@@ -90,7 +90,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult AutoResizeImage(/*in*/unsigned handle, bool enabled, /*in*/unsigned width, /*in*/unsigned height );
+		GEOWEB3DENGINE_API GW3DResult AutoResizeImage(/*in*/unsigned handle, bool enabled, /*in*/unsigned width, /*in*/unsigned height );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Modify URL. </summary>
@@ -105,7 +105,7 @@ namespace Geoweb3d
 		/// <see cref="OpenUrl"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult ModifyUrl(/*in*/ unsigned handle,  /*in*/  const char* new_url );
+		GEOWEB3DENGINE_API GW3DResult ModifyUrl(/*in*/ unsigned handle,  /*in*/  const char* new_url );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Modify refresh rate. </summary>
@@ -116,7 +116,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult ModifyRefreshRate(/*in*/ unsigned handle,  /*in*/  unsigned refresh_rate );
+		GEOWEB3DENGINE_API GW3DResult ModifyRefreshRate(/*in*/ unsigned handle,  /*in*/  unsigned refresh_rate );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Gets current frame count. </summary>
@@ -127,7 +127,7 @@ namespace Geoweb3d
 		/// <returns>	The current frame count. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult GetCurrentFrameCount(/*in*/ unsigned handle,  /*out*/ unsigned &frame_count );
+		GEOWEB3DENGINE_API GW3DResult GetCurrentFrameCount(/*in*/ unsigned handle,  /*out*/ unsigned &frame_count );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Saves the image. </summary>
@@ -138,7 +138,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult SaveImage(/*in*/ unsigned handle, const char* filename );
+		GEOWEB3DENGINE_API GW3DResult SaveImage(/*in*/ unsigned handle, const char* filename );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Mirror the image. </summary>
@@ -150,7 +150,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult MirrorImage(/*in*/ unsigned handle, bool horizontal, bool vertical );
+		GEOWEB3DENGINE_API GW3DResult MirrorImage(/*in*/ unsigned handle, bool horizontal, bool vertical );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Gets the native size of the image. </summary>
@@ -162,6 +162,6 @@ namespace Geoweb3d
 		/// <returns>	The native size. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult GetNativeSize(/*in*/ unsigned handle, unsigned& height, unsigned& width );
+		GEOWEB3DENGINE_API GW3DResult GetNativeSize(/*in*/ unsigned handle, unsigned& height, unsigned& width );
 	}
 }

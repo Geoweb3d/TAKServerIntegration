@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -15,12 +15,9 @@ namespace Geoweb3d
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	A token. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	extern "C++"
+
+	struct IGW3DToken
 	{
-		struct GW3D_DLL IGW3DToken
-		{
-			virtual ~IGW3DToken() {}
-			virtual int get_Type() const = 0;
-		};
-	}
+		virtual int get_Type() const = 0;
+	};
 }

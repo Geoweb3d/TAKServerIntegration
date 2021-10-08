@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <Geoweb3d/core/GW3DInterFace.h>
+#include <Geoweb3d/attributemapper/GW3DInterFace.h>
 #include <Geoweb3d/core/IGW3DCollection.h>
 namespace Geoweb3d
 {

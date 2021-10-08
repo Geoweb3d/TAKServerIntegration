@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -18,9 +18,8 @@ namespace Geoweb3d
 	 /// <remarks>	Ignore - Not used in external SDK. </remarks>
 	 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	 struct GW3D_DLL ElevationParameters
+	 struct ElevationParameters
 	{
-		 virtual  ~ElevationParameters() {}
 		/*! Comparison function for invalid elevation values (INVALID_VALUE) */
 		enum OpType
 		{
@@ -44,10 +43,8 @@ namespace Geoweb3d
 	/// <remarks>	Ignore - Not used in external SDK. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	struct GW3D_DLL ImageryParameters
+	struct ImageryParameters
 	{
-		virtual  ~ImageryParameters() {}
-
 		enum IndividualParameters
 		{
 			R_BAND	= 0,

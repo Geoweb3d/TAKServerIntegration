@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2014, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -231,9 +231,9 @@ _GW3D_WEAK_SMARTPTR_TYPEDEF( IGW3DGUIMenu );
 _GW3D_WEAK_SMARTPTR_TYPEDEF( IGW3DGUIMenuItem );
 
 
-extern "C" GW3D_DLL void close_GUIVectorRepresentation( IGW3DGUIVectorRepresentationWPtr rep );
-extern "C" GW3D_DLL void close_GUIVectorRepresentationBasic( IGW3DGUIVectorRepresentationBasicWPtr rep );
-extern "C" GW3D_DLL void close_GUIVectorLayer( IGW3DGUIVectorLayerWPtr rep );
+extern "C" GEOWEB3DENGINE_API void close_GUIVectorRepresentation( IGW3DGUIVectorRepresentationWPtr rep );
+extern "C" GEOWEB3DENGINE_API void close_GUIVectorRepresentationBasic( IGW3DGUIVectorRepresentationBasicWPtr rep );
+extern "C" GEOWEB3DENGINE_API void close_GUIVectorLayer( IGW3DGUIVectorLayerWPtr rep );
 
 }
 }

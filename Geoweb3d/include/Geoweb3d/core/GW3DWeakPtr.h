@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -24,7 +24,7 @@ private:
 public:
     typedef T element_type;
 
-    GW3DWeakPtr(): px(nullptr), pn()
+    GW3DWeakPtr(): px(0), pn()
     {
     }
 
@@ -86,7 +86,7 @@ public:
         this_type().swap(*this);
     }
 
-    void swap(GW3DWeakPtr<T> & other) // never throws
+    void swap(this_type & other) // never throws
     {
         std::swap(px, other.px);
         pn.swap(other.pn);

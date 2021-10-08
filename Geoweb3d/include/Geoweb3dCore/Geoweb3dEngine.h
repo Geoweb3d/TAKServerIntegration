@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // GeoWeb3d SDK license under which the SDK provided.
@@ -34,21 +34,21 @@ namespace Geoweb3d
 
 	//Note, this will return an -1 if infinteZ is not in stereo on this window 
 	//or if the InfiniteZ sdk is not installed
-	//GW3D_DLL	int	GetInfintiteZTrackerNumOfButtons( CameraHandle camera_handle );
-	//GW3D_DLL bool GetInfintiteZTrackerisButtonPressed( CameraHandle camera_handle, int button );
+	//GEOWEB3DENGINE_API	int	GetInfintiteZTrackerNumOfButtons( CameraHandle camera_handle );
+	//GEOWEB3DENGINE_API bool GetInfintiteZTrackerisButtonPressed( CameraHandle camera_handle, int button );
 
 	
-//	GW3D_DLL GW3DResult SetHeadTrackerTranslationScale( CameraHandle camera_handle, float scale );
+//	GEOWEB3DENGINE_API GW3DResult SetHeadTrackerTranslationScale( CameraHandle camera_handle, float scale );
 	
 	
 	//NOTE! EnableHeadTrackerFilter is global....but right now we need a camera handle to get to the correct
 	//objects.. TODO
-	//GW3D_DLL GW3DResult EnableHeadTrackerFilter(CameraHandle camera_handle, bool filter_on );
+	//GEOWEB3DENGINE_API GW3DResult EnableHeadTrackerFilter(CameraHandle camera_handle, bool filter_on );
 
 	//Note, if any button is pressed I will return true...
-	//GW3D_DLL bool GetInfintiteZTrackerInfo(CameraHandle camera_handle, int &screen_coord_x, int &screen_coord_y, float &direction_x, float &direction_y , float &direction_z  );
+	//GEOWEB3DENGINE_API bool GetInfintiteZTrackerInfo(CameraHandle camera_handle, int &screen_coord_x, int &screen_coord_y, float &direction_x, float &direction_y , float &direction_z  );
 	//Note, if any button is pressed I will return true...
-	//GW3D_DLL bool GetInfintiteZTrackerInfo(CameraHandle camera_handle, double &latitude, double &longitude, double &elevation, float &direction_x, float &direction_y , float &direction_z);
+	//GEOWEB3DENGINE_API bool GetInfintiteZTrackerInfo(CameraHandle camera_handle, double &latitude, double &longitude, double &elevation, float &direction_x, float &direction_y , float &direction_z);
 
 //SKIP-CODE-END
 
@@ -57,19 +57,16 @@ namespace Geoweb3d
 	///
 	/// <remarks>	Depricated. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	extern "C++"
+
+	struct WindowConfig
 	{
-		struct GW3D_DLL WindowConfig
-		{
-			virtual ~WindowConfig() {};
-			WindowConfig() : picture_quality(4), external_opengl_context(false)
-			{}
+		WindowConfig() : picture_quality(4),external_opengl_context(false)
+		{}
 
-			unsigned picture_quality;
-			bool     external_opengl_context;
-		};
+		unsigned picture_quality;
+		bool     external_opengl_context;
+	};
 
-	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Multi media capture profile. </summary>
 	///
@@ -121,7 +118,7 @@ namespace Geoweb3d
 	/// <returns>	. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//GW3D_DLL	GW3DResult	StartMultiMediaService( WindowHandle &handle , const MultiMediaCaptureProfile &service);
+	//GEOWEB3DENGINE_API	GW3DResult	StartMultiMediaService( WindowHandle &handle , const MultiMediaCaptureProfile &service);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Stops all multi media service. </summary>
@@ -133,7 +130,7 @@ namespace Geoweb3d
 	/// <returns>	. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//GW3D_DLL	GW3DResult	StopAllMultiMediaService( WindowHandle &handle );
+	//GEOWEB3DENGINE_API	GW3DResult	StopAllMultiMediaService( WindowHandle &handle );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets multi media service from filename or URL. </summary>
@@ -145,11 +142,11 @@ namespace Geoweb3d
 	/// <returns>	null if it fails, else the multi media service filename or URL. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//GW3D_DLL	const char*	GetMultiMediaServiceFilenameOrURL( WindowHandle &handle );
+	//GEOWEB3DENGINE_API	const char*	GetMultiMediaServiceFilenameOrURL( WindowHandle &handle );
 	
 	//For the CPP API
 	class IGW3DIBaseObject;
-	struct  GW3D_DLL IGW3DCallback;
+	struct IGW3DCallback;
 
 
 
@@ -161,7 +158,7 @@ namespace Geoweb3d
 	/// <param name="p">	[in,out] If non-null, the Geoweb3d::IGW3DIBaseObject * to process. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	extern "C" GW3D_DLL void destroyClassInstance(  Geoweb3d::IGW3DIBaseObject *p );
+	extern "C" GEOWEB3DENGINE_API void destroyClassInstance(  Geoweb3d::IGW3DIBaseObject *p );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Creates class instance. </summary>
@@ -172,7 +169,7 @@ namespace Geoweb3d
 	/// <returns>	null if it fails, else the new class instance. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	extern "C" GW3D_DLL Geoweb3d::IGW3DIBaseObject *createClassInstance( const Geoweb3d::GW3DGUID &class_type, Geoweb3d::IGW3DCallback *p );
+	extern "C" GEOWEB3DENGINE_API Geoweb3d::IGW3DIBaseObject *createClassInstance( const Geoweb3d::GW3DGUID &class_type, Geoweb3d::IGW3DCallback *p );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Queries if class interface is supported class interface. </summary>
@@ -182,22 +179,19 @@ namespace Geoweb3d
 	/// <returns>	true if class interface supported, false if not. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	extern "C" GW3D_DLL bool isClassInterfaceSupported( const Geoweb3d::GW3DGUID &class_type);
+	extern "C" GEOWEB3DENGINE_API bool isClassInterfaceSupported( const Geoweb3d::GW3DGUID &class_type);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Deleter for IGW3DIBaseObject. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	extern "C++"
+
+	struct IGW3DDeleter
 	{
-		struct GW3D_DLL IGW3DDeleter
-		{
-			virtual ~IGW3DDeleter(){}
-			void operator()(Geoweb3d::IGW3DIBaseObject* p)
-			{
-				destroyClassInstance(p);
-			}
-		};
-	}
+		void operator()( Geoweb3d::IGW3DIBaseObject * p )
+		{		
+			destroyClassInstance( p );
+		}
+	};
 
 
 	template<class T, class C> 

@@ -15,17 +15,13 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
-	{
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Collection of intersection reports from an intersection test. </summary>
-		///
-		/// <see cref="IGW3DLineSegmentIntersectionTest"/>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Collection of intersection reports from an intersection test. </summary>
+	///
+	/// <see cref="IGW3DLineSegmentIntersectionTest"/>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct IGW3DLineSegmentIntersectionReportCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionReport* >
-		{
-			virtual ~IGW3DLineSegmentIntersectionReportCollection() {}
-		};
-	}
+	struct IGW3DLineSegmentIntersectionReportCollection : public IGW3DCollection< IGW3DLineSegmentIntersectionReport* >
+	{
+	};
 }

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -19,8 +19,8 @@
 #include <atomic>
 #endif
 
-extern "C" GW3D_DLL void* GW3DNew( size_t size);
-extern "C" GW3D_DLL void GW3DDelete( void* p );
+extern "C" GEOWEB3DENGINE_API void* GW3DNew( size_t size);
+extern "C" GEOWEB3DENGINE_API void GW3DDelete( void* p );
 
 namespace Geoweb3d
 {

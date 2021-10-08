@@ -10,13 +10,13 @@
 #pragma once
 
 #include <Geoweb3d/core/GW3DInterFace.h>
-#include <Geoweb3dCore/Geoweb3dEngine.h>
+#include <Geoweb3dCore/GeoWeb3dEngine.h>
 #include <Geoweb3dCore/Geoweb3dTypes.h>
 
 namespace Geoweb3d
 {
 	///////////////////////////////////////////////////////////
-	struct  GW3D_DLL IGW3DSDKContext
+	struct IGW3DSDKContext
 	{
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	low-level IGW3DGeoweb3dSDK accessor  </summary>

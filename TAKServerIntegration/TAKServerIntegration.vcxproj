@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{94d2802a-3ec0-47e6-bfdc-3f1319c0abe3}</ProjectGuid>
+    <RootNamespace>TAKServerIntegration</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;WIN32;TAK_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\;..\3rdparty\curl-7.72.0\include;..\3rdparty\openssl-1.1\x64\include;..\3rdparty\libxml2\include;..\3rdparty\libiconv\include;..\3rdparty\protobuf\include;..\3rdparty\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-static;..\Geoweb3d\include\Geoweb3d;..\Geoweb3d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\3rdparty\protobuf\bin\protoc.exe --proto_path=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf ..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\*.proto --cpp_out=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\.</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;WIN32;TAK_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\;..\3rdparty\curl-7.72.0\include;..\3rdparty\openssl-1.1\x64\include;..\3rdparty\libxml2\include;..\3rdparty\libiconv\include;..\3rdparty\protobuf\include;..\3rdparty\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-static;..\Geoweb3d\include\Geoweb3d;..\Geoweb3d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\3rdparty\protobuf\bin\protoc.exe --proto_path=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf ..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\*.proto --cpp_out=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\.</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>CURL_STATICLIB;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;WIN32;TAK_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\;..\3rdparty\curl-7.72.0\include;..\3rdparty\openssl-1.1\x64\include;..\3rdparty\libxml2\include;..\3rdparty\libiconv\include;..\3rdparty\protobuf\include;..\3rdparty\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-static;..\Geoweb3d\include\Geoweb3d;..\Geoweb3d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Rpcrt4.lib;Iphlpapi.lib;Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\3rdparty\protobuf\bin\protoc.exe --proto_path=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf ..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\*.proto --cpp_out=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\.</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>CURL_STATICLIB;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;WIN32;TAK_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\include;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\;..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\;..\3rdparty\curl-7.72.0\include;..\3rdparty\openssl-1.1\x64\include;..\3rdparty\libxml2\include;..\3rdparty\libiconv\include;..\3rdparty\protobuf\include;..\3rdparty\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-static;..\Geoweb3d\include\Geoweb3d;..\Geoweb3d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Rpcrt4.lib;Iphlpapi.lib;Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\3rdparty\protobuf\bin\protoc.exe --proto_path=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf ..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\*.proto --cpp_out=..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\.</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cloudiomanager.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commo.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commothread.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commotime.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\contactmanager.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cotmessage.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cryptoutil.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\datagramsocketmanagement.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\fileioprovidertracker.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\httpsproxy.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\hwifscanner.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\internalutils.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\missionpackagemanager.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\netsocket.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\plaintextfileioprovider.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platform.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platformthread.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\resolverqueue.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\simplefileiomanager.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\streamingsocketmanagement.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\takmessage.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\tcpsocketmanagement.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\threadedhandler.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\urlrequestmanager.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\versionimpl.cpp" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.pb.cc" />
+    <ClCompile Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.pb.cc" />
+    <ClCompile Include="GW3DTAKInterface.cpp" />
+    <ClCompile Include="NavigationHelper.cpp" />
+    <ClCompile Include="TAKServerIntegration.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cloudiomanager.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commothread.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\commotime.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\contactmanager.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cotmessage.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\cryptoutil.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\datagramsocketmanagement.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\fileioprovidertracker.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\httpsproxy.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\hwifscanner.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\internalutils.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\missionpackagemanager.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\netsocket.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\plaintextfileioprovider.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platform.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\platformthread.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\protobuf.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\resolverqueue.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\simplefileiomanager.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\streamingsocketmanagement.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\takmessage.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\tcpsocketmanagement.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\threadedhandler.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\urlrequestmanager.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\impl\versionimpl.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\cloudio.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commo.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commologger.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoresult.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoutils.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\commoversion.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\contactuid.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\cotmessageio.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\fileioprovider.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\missionpackage.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\netinterface.h" />
+    <ClInclude Include="..\..\..\..\Downloads\AndroidTacticalAssaultKit-CIV-master (1)\commoncommo\core\include\simplefileio.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.pb.h" />
+    <ClInclude Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.pb.h" />
+    <ClInclude Include="GW3DEntityController.h" />
+    <ClInclude Include="GW3DTAKInterface.h" />
+    <ClInclude Include="NavigationHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\..\gw3d\trunk\geoweb3d\distribution\examples\Example_Animation_Playback\libmicrohttpd-0.9.73-w32-bin\x86_64\VS2019\Release-dll\libmicrohttpd-dll.lib" />
+    <Library Include="..\3rdparty\curl-7.72.0\Win64\LIB Release - DLL Windows SSPI\libcurl.lib" />
+    <Library Include="..\3rdparty\libxml2\win32\VC10\x64\Release\libxml2.lib" />
+    <Library Include="..\3rdparty\openssl-1.1\x64\lib\libcrypto.lib" />
+    <Library Include="..\3rdparty\openssl-1.1\x64\lib\libssl.lib" />
+    <Library Include="..\3rdparty\protobuf\lib\libprotobuf.lib" />
+    <Library Include="..\Geoweb3d\lib\Geoweb3dEngine.lib" />
+    <Library Include="..\Geoweb3d\lib\GW3DAttributeMapper.lib" />
+    <Library Include="..\Geoweb3d\lib\GW3DCommon.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\contact.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">3rdparty\protobuf\bin\protoc.exe --cpp_out=.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">3rdparty\protobuf\bin\protoc.exe --cpp_out=.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">3rdparty\protobuf\bin\protoc.exe --cpp_out=.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">3rdparty\protobuf\bin\protoc.exe --cpp_out=.</Command>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</VerifyInputsAndOutputsExist>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</VerifyInputsAndOutputsExist>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </None>
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\cotevent.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\detail.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\group.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\precisionlocation.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\status.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takcontrol.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takmessage.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\takv.proto" />
+    <None Include="..\3rdparty\AndroidTacticalAssaultKit\commoncommo\core\impl\protobuf\track.proto" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

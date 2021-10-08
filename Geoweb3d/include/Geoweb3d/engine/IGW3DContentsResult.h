@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -13,44 +13,42 @@
 
 namespace Geoweb3d
 {
-	extern "C++"
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	An analysis contents result  </summary>
+    ///
+    /// <remarks>	Reports general information on representations found in an analysis. </remarks>
+	///
+	///	<see cref="IGW3DFrustumAnalysisStream"/>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DContentsResult
 	{
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	An analysis contents result  </summary>
-		///
-		/// <remarks>	Reports general information on representations found in an analysis. </remarks>
-		///
-		///	<see cref="IGW3DFrustumAnalysisStream"/>
+		/// <summary>	The camera to which this result relates.  </summary>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct GW3D_DLL IGW3DContentsResult
-		{
-			virtual ~IGW3DContentsResult() {}
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	The camera to which this result relates.  </summary>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual  const IGW3DCameraWPtr &get_Camera() const = 0;
 
-			virtual  const IGW3DCameraWPtr& get_Camera() const = 0;
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	The representation to which this result relates.  </summary>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	The representation to which this result relates.  </summary>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual  const IGW3DVectorRepresentationWPtr &get_VectorRepresentation() const = 0;
 
-			virtual  const IGW3DVectorRepresentationWPtr& get_VectorRepresentation() const = 0;
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Gets whether this representation was visible in the given camera.  </summary>
+		///
+		/// <remarks>	The fact we got the event on this camera for this representation means data is 
+		///				paged in within your page level settings. Thus, true would mean the camera is 
+		///				looking at the bounding box area of the paged in data.  If false, the data is 
+		///				paged in, but this camera is not looking at / intersecting the bounding box of the 
+		///				data for this representation. </remarks>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets whether this representation was visible in the given camera.  </summary>
-			///
-			/// <remarks>	The fact we got the event on this camera for this representation means data is 
-			///				paged in within your page level settings. Thus, true would mean the camera is 
-			///				looking at the bounding box area of the paged in data.  If false, the data is 
-			///				paged in, but this camera is not looking at / intersecting the bounding box of the 
-			///				data for this representation. </remarks>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			virtual bool get_VectorRepresentationIsVisible() const = 0;
-		};
-	}
+		virtual bool get_VectorRepresentationIsVisible() const = 0;
+	};
 }
+
 
 

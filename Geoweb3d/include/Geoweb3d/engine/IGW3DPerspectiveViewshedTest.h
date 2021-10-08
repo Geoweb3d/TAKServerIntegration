@@ -15,37 +15,34 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
-	{
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	A Perspective viewshed analysis. </summary>
-		///
-		/// <remarks>	The Geoweb3d viewshed provides a visual display of surfaces that are visible and/or
-		/// 			non-visible from a defined position, orientation and field of view. The display of
-		/// 			viewshed is divided into two regions: the visible and the hidden region.  The
-		/// 			visible region represents all terrain and geometry surfaces that are visible from
-		/// 			the viewshed origin, whereas the hidden region represents all terrain and
-		/// 			geometry surfaces that are not visible from the viewshed origin. </remarks>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		struct  GW3D_DLL IGW3DPerspectiveViewshedTest : public IGW3DViewshedTest
-		{
-			virtual ~IGW3DPerspectiveViewshedTest() {}
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets the viewshed frustum. </summary>
-			///
-			/// <returns>	the frustum. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	A Perspective viewshed analysis. </summary>
+///
+/// <remarks>	The Geoweb3d viewshed provides a visual display of surfaces that are visible and/or
+/// 			non-visible from a defined position, orientation and field of view. The display of
+/// 			viewshed is divided into two regions: the visible and the hidden region.  The
+/// 			visible region represents all terrain and geometry surfaces that are visible from
+/// 			the viewshed origin, whereas the hidden region represents all terrain and
+/// 			geometry surfaces that are not visible from the viewshed origin. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+struct IGW3DPerspectiveViewshedTest : public IGW3DViewshedTest
+{
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Gets the viewshed frustum. </summary>
+	///
+	/// <returns>	the frustum. </returns>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual IGW3DViewshedFrustum* get_Frustum() = 0;
+	virtual IGW3DViewshedFrustum * get_Frustum() = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Gets the viewshed frustum. </summary>
-			///
-			/// <returns>	the frustum. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Gets the viewshed frustum. </summary>
+	///
+	/// <returns>	the frustum. </returns>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual const IGW3DViewshedFrustum* get_Frustum() const = 0;
-		};
-	}
+	virtual const IGW3DViewshedFrustum * get_Frustum() const = 0;
+};
+
 }

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -24,7 +24,7 @@ template< class Y, class T > struct GW3DSpConvertible
     static yes f( T* );
     static no  f( ... );
 
-    enum _vt { value = sizeof( (f)( static_cast<Y*>(nullptr) ) ) == sizeof(yes) };
+    enum _vt { value = sizeof( (f)( static_cast<Y*>(0) ) ) == sizeof(yes) };
 };
 
 struct sp_empty

@@ -1,13 +1,15 @@
-#pragma once
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
 //
 //////////////////////////////////////////////////////////////////////////////
+
+#ifndef GEOWEB3D_LAYER_PARAMETERS_H
+#define GEOWEB3D_LAYER_PARAMETERS_H
 
 namespace Geoweb3d
 {
@@ -699,7 +701,15 @@ struct SphereProperties
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 struct DrapedRingProperties
 {
-
+	enum DrapedRingLightingMode
+	{
+		UNSHADED = 0,
+		SHADED = 1,
+		/// <summary>	DrapedRingLightingModeMax - Can be used for looping over the modes. </summary>
+		DrapedRingLightingModeMax,
+		/// <summary>	DrapedRingLightingModeMax_DATA_SIZER - Do Not Use </summary>
+		DrapedRingLightingModeMax_DATA_SIZER = 0xFFFF
+	};
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Representation properties that can be set for unique features. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -714,17 +724,27 @@ struct DrapedRingProperties
 		BLUE = 2,
 		/// <summary>	Sphere alpha transparency (0.0 to 1.0)(NOT SUPPORTED YET) </summary>
 		ALPHA = 3,
-		/// <summary>	Order independent transparency mode (NOT SUPPORTED YET)</summary>
-		OIT = 4,
-		/// <summary>	Texture palette index (NOT SUPPORTED YET)</summary>
-		TEXTURE_PALETTE_INDEX = 5,
-		/// <summary>	Inner Radius. (meters) </summary>
+		/// <summary>	Texture palette index </summary>
+		TEXTURE_PALETTE_INDEX = 4,
+		/// <summary>	Texture blend factor( only texture (1.0) to only color (0.0) ).</summary>
+		TEXTURE_TO_COLOR_BLEND = 5,
+		/// <summary>	Inner Radius. (meters) 
+		/// Inner radius will be clamped at the current outer radius. </summary>
 		INNER_RAD = 6,
 		/// <summary>	Outer Radius. (meters) </summary>
 		OUTER_RAD = 7,
+		/// <summary>	Minimum line width in screen space (pixels). (0 to 32) 
+		/// Line width is only applied if the metric width is too small to cover the pixels. 
+		/// Line width set to 0 will deactivate this capability as an optimization. </summary>
+		MIN_SCREEN_SPACE_EXTENT = 8,
+		/// <summary> Under Construction: Any value > 0.0 will show an outline.  </summary>
+		MIN_SCREEN_SPACE_OUTLINE_EXTENT = 9,
+		/// <summary>	Lighting mode. (Turn shading on/off) </summary>
+		LIGHTING_MODE = 10,
 		/// <summary>	MAX - Do Not Use </summary>
 		DR_PARAM_MAX = 0xFFFF
 	};
+
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -732,8 +752,6 @@ struct DrapedRingProperties
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 struct DrapedLineProperties
 {
-
-
 	enum DrapedLineLightingMode
 	{
 		UNSHADED = 0,
@@ -767,15 +785,8 @@ struct DrapedLineProperties
 		/// Line width is only applied if the metric width is too small to cover the pixels. 
 		/// Line width set to 0 will deactivate this capability as an optimization. </summary>
 		LINE_WIDTH = 7,
-		/// <summary>	Minimum line width in screen space (pixels). (0 to 16) 
-		/// Outline width is an addition pixel distance applied to both sides of the current LINE_WIDTH.
-		/// Outline width set to 0 will deactivate this capability as an optimization. 
-		/// NOTE: When the screenspace line aspect is not being rendered these values
-		/// will be be controlling the proportion of the metric width that has a contrast border.
-		/// For example if OUTLINE_WIDTH is half the value of LINE_WIDTH then a total of 50% of the metric 
-		/// width will have a color bias and 50% won't. </summary>
+		/// <summary> Under Construction: Any value > 0.0 will show an outline.  </summary>
 		OUTLINE_WIDTH = 8,
-		OUTLINE_COLOR_BIAS = 9,
 		/// <summary>	MAX - Do Not Use </summary>
 		DR_PARAM_MAX = 0xFFFF
 	};
@@ -787,8 +798,8 @@ struct DrapedLineProperties
 	enum LayerDefaultsOnlyProperties
 	{
 		/// <summary>	Order independent transparency mode </summary>
-		OIT = 8,
-		LIGHTING_MODE = 9,
+		OIT = 9,
+		LIGHTING_MODE = 10,
 		/// <summary>	MAX - Do Not Use </summary>
 		LDO_MAX = 0xFFFF
 	};
@@ -1038,36 +1049,43 @@ struct ExtrudedPolygonProperties
 
 struct ExtrudedPathProperties
 {
-	enum FillMode
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Render Mode</summary>
+	///
+	/// <remarks>	LINE_BACKGROUND typically is used for contrast so the foreground line will stand out.
+	///  			LINE_BACKGROUND will also apply to the extruded path to give it contrast; however,
+	///				it will not be noticed with a texture unless the TEXTURE_TO_COLOR_BLEND is set 
+	///				appropriately. If LINE_FOREGROUND is also set the EXTRUDED_PATH will seek to 
+	///				honor the ratio of these values for its underlying coloring. 
+	/// 
+	///				The Curtain currently does not have any contrasting border associated with these values. 
+	/// </remarks>	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	enum RenderMode
 	{
-		GW3DSOLID = 0,	
-		GW3DOUTLINE = 1,
-		GW3DOUTLINEBACKGROUND = 2,
-		GW3DOUTLINE_AND_OUTLINEBACKGROUND = 3,
-		GW3DSOLID_WITH_OUTLINE = 4,	
-		GW3DSOLID_OUTLINEBACKGROUND= 5,
-		GW3DSOLID_OUTLINE_AND_OUTLINEBACKGROUND = 6,
-		/// <summary>	FillModeMax - Can be used for looping over the modes. </summary>
-		FillModeMax,
-		/// <summary>	FillModeMax_DATA_SIZER - Do Not Use </summary>
-		FillModeMax_DATA_SIZER = 0xFFFF
+		EXTRUDED_PATH = 0x1,
+		LINE = 0x2,
+		CURTAIN = 0x4,
+		DRAPED_LINE = 0x8,
+		/// <summary>	RenderModeMax - Can be used for looping over the modes. </summary>
+		RenderModeMax,
+		/// <summary>	RenderModeMax_DATA_SIZER - Do Not Use </summary>
+		RenderModeMax_DATA_SIZER = 0xFFFF
 	};
 
 	
-
 	enum LightingMode
 	{
-		OUTLINE_SHADED_ONLY = 0,		
-		SOLID_SHADED_ONLY = 1,
-		BOTH_SHADED = 2,
-		BOTH_UNSHADED = 3,	
+		NONE_SHADED = 0x0,
+		EXTRUDED_PATH_SHADED = 0x1,
+		CURTAIN_SHADED = 0x2,
+		DRAPED_LINE_SHADED = 0x4,
 		/// <summary>	LightingModeMax - Can be used for looping over the modes. </summary>
 		LightingModeMax,
 		/// <summary>	LightingModeMax_DATA_SIZER - Do Not Use </summary>
 		LightingModeMax_DATA_SIZER = 0xFFFF
 	};
 
-	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Properties that can only be set for representation layer defaults. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1076,16 +1094,7 @@ struct ExtrudedPathProperties
 	{
 		/// <summary>	Order independent transparency mode </summary>
 		OIT = 13,
-		FILL_MODE = 14,
-		LINE_COLOR_BIAS = 15,
-		/// <summary>	Minimum line width in screen space (pixels). (0 to 32) 
-		/// Line width is only applied if the metric width is too small to cover the pixels. 
-		/// Line width set to 0 will deactivate this capability as an optimization. </summary>
-		LINE_WIDTH = 16,
-		/// <summary>	Minimum line width in screen space (pixels). (0 to 16) 
-		/// Outline width is an addition pixel distance applied on both sides of the LINE_WIDTH 
-		/// Outline width set to 0 will deactivate this capability as an optimization. </summary>
-		OUTLINE_WIDTH = 17,
+		RENDER_MODE = 14,
 		LIGHTING_MODE = 20,
 		/// <summary>	MAX - Do Not Use </summary>
 		LDO_MAX = 0xFFFF
@@ -1169,6 +1178,16 @@ struct ExtrudedPathProperties
 		LEFT_DISTANCE = 11,
 		/// <summary>	Left distance of Extruded Path in Meters </summary>
 		RIGHT_DISTANCE = 12,
+		CURTAIN_COLOR_BIAS = 15,
+		/// <summary>	Minimum line width in screen space (pixels). (0 to 32) 
+		/// The renderings are stretched to the screen space Line width if the metric width is too small to cover the pixels. 
+		///  </summary>
+		LINE_WIDTH = 16,
+		/// <summary> Under Construction: Any value > 0.0 will show an outline.  </summary>
+		OUTLINE_WIDTH = 17,
+		DRAPED_LINE_COLOR_BIAS = 23,
+		CURTAIN_ALPHA = 24,
+		DRAPED_LINE_ALPHA = 25,
 		/// <summary>	MAX - Do Not Use </summary>
 		EPP_EPP_MAX = 0xFFFF
 	};
@@ -1536,6 +1555,10 @@ struct BillboardProperties
 		OCCLUDED_BILLBOARD_SHADING_BLEND_AMOUNT = 26,
 		/// <summary> </Summary>
 		STACK_ORDER = 27,
+		/// <summary> </Summary>
+		LABEL = 28,
+		/// <summary> </Summary>
+		LABEL_ANCHOR_POS = 29,
 		/// <summary>	MAX - Do Not Use </summary>
 		BB_LP_MAX		= 0xFFFF
 	};
@@ -1572,5 +1595,34 @@ struct SmokeProperties
 };
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Label Properties </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+struct LabelProperties
+{
+	enum IndividualProperties
+	{
+		/// <summary>	Foreground Color - Red (0.0 to 1.0) </summary>
+		FOREGROUND_COLOR_RED   = 0,
+		/// <summary>	Foreground Color - Green (0.0 to 1.0) </summary>
+		FOREGROUND_COLOR_GREEN = 1,
+		/// <summary>	Foreground Color - Bue (0.0 to 1.0) </summary>
+		FOREGROUND_COLOR_BLUE  = 2,
+		/// <summary>	Foreground Color - Alpha (0.0 to 1.0) </summary>
+		FOREGROUND_COLOR_ALPHA = 3,
+		/// <summary>	Background Color - Red (0.0 to 1.0) </summary>
+		BACKGROUND_COLOR_RED   = 4,
+		/// <summary>	Background Color - Green (0.0 to 1.0) </summary>
+		BACKGROUND_COLOR_GREEN = 5,
+		/// <summary>	Background Color - Blue (0.0 to 1.0) </summary>
+		BACKGROUND_COLOR_BLUE  = 6,
+		/// <summary>	Background Color - Alpha (0.0 to 1.0) </summary>
+		BACKGROUND_COLOR_ALPHA = 7
+	};
+};
+
 }
 }
+
+#endif

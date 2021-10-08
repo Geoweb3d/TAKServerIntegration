@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -41,12 +41,12 @@ public:
 
     virtual void * get_deleter( detail::GW3DSpTypeinfo const & )
     {
-        return nullptr;
+        return 0;
     }
 
     virtual void * get_untyped_deleter()
     {
-        return nullptr;
+        return 0;
     }
 
     void * operator new( std::size_t sz)
@@ -91,7 +91,7 @@ public:
 
     virtual void * get_deleter( detail::GW3DSpTypeinfo const & ti )
     {
-        return ti == GW3D_SP_TYPEID(D)? &reinterpret_cast<char&>( del ): nullptr;
+        return ti == GW3D_SP_TYPEID(D)? &reinterpret_cast<char&>( del ): 0;
     }
 
     virtual void * get_untyped_deleter()
@@ -153,7 +153,7 @@ public:
 
     virtual void * get_deleter( detail::GW3DSpTypeinfo const & ti )
     {
-        return ti == GW3D_SP_TYPEID( D )? &reinterpret_cast<char&>( d_ ): nullptr;
+        return ti == GW3D_SP_TYPEID( D )? &reinterpret_cast<char&>( d_ ): 0;
     }
 };
 

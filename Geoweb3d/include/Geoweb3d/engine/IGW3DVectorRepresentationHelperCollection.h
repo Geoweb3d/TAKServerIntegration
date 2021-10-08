@@ -16,37 +16,34 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-    extern "C++"
-    {
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary>	Collection of vector representations allowing adding/removal. </summary>
-        ///
-        /// <remarks>	A collection of vector representations with the capability to add and remove
-        /// 			representations. </remarks>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Collection of vector representations allowing adding/removal. </summary>
+///
+/// <remarks>	A collection of vector representations with the capability to add and remove
+/// 			representations. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        struct  GW3D_DLL IGW3DVectorRepresentationHelperCollection : public IGW3DCollection< IGW3DVectorRepresentationWPtr >
-        {
-            virtual ~IGW3DVectorRepresentationHelperCollection(){}
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Adds a representation. </summary>
-            ///
-            /// <param name="rep">	The representation. </param>
-            ///
-            /// <returns>	GW3D_sOk if succeeded. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+struct IGW3DVectorRepresentationHelperCollection : public IGW3DCollection< IGW3DVectorRepresentationWPtr >
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Adds a representation. </summary>
+    ///
+    /// <param name="rep">	The representation. </param>
+    ///
+    /// <returns>	GW3D_sOk if succeeded. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual GW3DResult add(IGW3DVectorRepresentationWPtr rep) = 0;
+    virtual GW3DResult add( IGW3DVectorRepresentationWPtr rep ) = 0;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            /// <summary>	Removes a representation. </summary>
-            ///
-            /// <param name="rep">	The representation. </param>
-            ///
-            /// <returns>	GW3D_sOk if succeeded. </returns>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>	Removes a representation. </summary>
+    ///
+    /// <param name="rep">	The representation. </param>
+    ///
+    /// <returns>	GW3D_sOk if succeeded. </returns>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            virtual GW3DResult remove(IGW3DVectorRepresentationWPtr rep) = 0;
-        };
-    }
+    virtual GW3DResult remove( IGW3DVectorRepresentationWPtr rep ) = 0;
+};
+
 }

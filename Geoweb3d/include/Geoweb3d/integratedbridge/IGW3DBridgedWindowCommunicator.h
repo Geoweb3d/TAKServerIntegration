@@ -16,7 +16,7 @@
 /*! Primary namespace */ 
 namespace Geoweb3d
 {
-	struct  GW3D_DLL IGW3DBridgedWindowCommunicator
+	struct IGW3DBridgedWindowCommunicator
 	{
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	GPU Context created</summary>

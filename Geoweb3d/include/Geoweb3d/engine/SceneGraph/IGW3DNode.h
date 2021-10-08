@@ -1,7 +1,7 @@
 /**
  * Property of Geoweb3d Inc.
  * --------------------------------
- * Copyright 2008-2021
+ * Copyright 2008-2011
  * Author: Vincent A. Autieri, Geoweb3d
  * Geoweb3d source code is not free software: you cannot distribute,
  * redistribute, and/or modify it under any terms.
@@ -26,13 +26,10 @@ _GW3D_SMARTPTR_TYPEDEF( IGW3DNode );
 
 //NOTE You are not involved in the actual traversal of the Scenegraph, as all you are doing is building up
 //an in memory "model" that the SDK can load from memory (instead of off disk for example).
-extern "C++"
+struct IGW3DNode : public IGW3DSpatial
 {
-    struct IGW3DNode : public IGW3DSpatial
-    {
-        virtual IGW3DSpatialCollection* get_SpatialCollection() = 0;
-    };
-}
+    virtual IGW3DSpatialCollection * get_SpatialCollection() = 0;
+} ;
 }
 
 

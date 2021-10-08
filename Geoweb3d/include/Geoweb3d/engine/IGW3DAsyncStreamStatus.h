@@ -14,32 +14,29 @@
 
 namespace Geoweb3d
 {
-	extern "C++"
+	struct IGW3DAsyncStreamStatus
 	{
-		struct GW3D_DLL IGW3DAsyncStreamStatus
+		enum async_task_state
 		{
-			enum async_task_state
-			{
-				TSK_RUNNING = 0x00,
-				TSK_CANCELED = 0x01,
-				TSK_SUCCESS = 0x02,
-				TSK_FAILURE = 0x03
-			};
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Cancel the Task if still outstanding. </summary>
-			///
-			/// <remarks>	If you set off an asynchronous operation and no longer want it, this
-			///				will try to cancel it. </remarks>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			virtual void cancel_operation() = 0;
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary> Checks if the task is complete. </summary>
-			///
-			/// <returns>	Returns a bool result. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			virtual async_task_state is_finished() = 0;
+			TSK_RUNNING = 0x00,
+			TSK_CANCELED = 0x01,
+			TSK_SUCCESS = 0x02,
+			TSK_FAILURE = 0x03
 		};
-	}
-}
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Cancel the Task if still outstanding. </summary>
+		///
+		/// <remarks>	If you set off an asynchronous operation and no longer want it, this
+		///				will try to cancel it. </remarks>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual void cancel_operation() = 0;
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary> Checks if the task is complete. </summary>
+		///
+		/// <returns>	Returns a bool result. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		virtual async_task_state is_finished() = 0;
+	};
+};

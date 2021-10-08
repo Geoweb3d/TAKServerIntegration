@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -164,7 +164,7 @@ enum GW3DMapScaleResolutionUnitsEnum
 };
 
 
-GW3D_DLL GW3DResult SetMap(/*in*/ const char* map_source, /*in*/ const char* map_series, /*in*/ double scale_resolution, double resolution_for_cib, /*in*/GW3DMapScaleResolutionUnitsEnum scale_resolution_units, /*out*/Raster::RasterSourceHandle& ret_handle);
+GEOWEB3DENGINE_API GW3DResult SetMap(/*in*/ const char* map_source, /*in*/ const char* map_series, /*in*/ double scale_resolution, double resolution_for_cib, /*in*/GW3DMapScaleResolutionUnitsEnum scale_resolution_units, /*out*/Raster::RasterSourceHandle& ret_handle);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Invalidates coverage image cache. </summary>
@@ -176,7 +176,7 @@ GW3D_DLL GW3DResult SetMap(/*in*/ const char* map_source, /*in*/ const char* map
 /// <returns>	GW3D_sOk if successful, an error code if not. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult InvalidateCoverageImageCache();
+GEOWEB3DENGINE_API GW3DResult InvalidateCoverageImageCache();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets supported raster extension string. </summary>
@@ -190,7 +190,7 @@ GW3D_DLL GW3DResult InvalidateCoverageImageCache();
 /// <returns>	null if it fails, else the supported raster extension string. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL const char* GetSupportedRasterExtensionString( const char * delimiterstring = "||" );
+GEOWEB3DENGINE_API const char* GetSupportedRasterExtensionString( const char * delimiterstring = "||" );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets the 'no imagery' color. </summary>
@@ -206,7 +206,7 @@ GW3D_DLL const char* GetSupportedRasterExtensionString( const char * delimiterst
 /// <returns>	GW3D_sOk if successful, an error code if not. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetNoImageryColor(/*in*/ float red, /*in*/float green, /*in*/float blue, /*in*/float alpha );
+GEOWEB3DENGINE_API GW3DResult SetNoImageryColor(/*in*/ float red, /*in*/float green, /*in*/float blue, /*in*/float alpha );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Loads an imagery datasource. </summary>
@@ -223,7 +223,7 @@ GW3D_DLL GW3DResult SetNoImageryColor(/*in*/ float red, /*in*/float green, /*in*
 /// <returns>	GW3D_sOk if successful, an error code if not. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult LoadImagery(/*in*/ const char* url, /*in*/ const char* projection_file, ImageryLoadProperties const& load_props, /*out*/ Raster::RasterSourceHandle& handle );
+GEOWEB3DENGINE_API GW3DResult LoadImagery(/*in*/ const char* url, /*in*/ const char* projection_file, ImageryLoadProperties const& load_props, /*out*/ Raster::RasterSourceHandle& handle );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Queries a file. </summary>
@@ -236,7 +236,7 @@ GW3D_DLL GW3DResult LoadImagery(/*in*/ const char* url, /*in*/ const char* proje
 /// <returns>	GW3D_sOk if successful, the appropriate error code otherwise. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult QueryFile( /*in*/const char* filename,		/*out*/Geoweb3d::Imagery::ImageryQuery& query );
+GEOWEB3DENGINE_API GW3DResult QueryFile( /*in*/const char* filename,		/*out*/Geoweb3d::Imagery::ImageryQuery& query );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Queries a file. </summary>
@@ -249,7 +249,7 @@ GW3D_DLL GW3DResult QueryFile( /*in*/const char* filename,		/*out*/Geoweb3d::Ima
 /// <returns>	GW3D_sOk if successful, the appropriate error code otherwise. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult QueryFile( /*in*/Raster::RasterSourceHandle file_handle,	/*out*/Geoweb3d::Imagery::ImageryQuery& query );
+GEOWEB3DENGINE_API GW3DResult QueryFile( /*in*/Raster::RasterSourceHandle file_handle,	/*out*/Geoweb3d::Imagery::ImageryQuery& query );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Removes the imagery described by file_handle. </summary>
@@ -261,7 +261,7 @@ GW3D_DLL GW3DResult QueryFile( /*in*/Raster::RasterSourceHandle file_handle,	/*o
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult RemoveImagery(Raster::RasterSourceHandle &file_handle );
+GEOWEB3DENGINE_API GW3DResult RemoveImagery(Raster::RasterSourceHandle &file_handle );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets image activity. </summary>
@@ -279,7 +279,7 @@ GW3D_DLL GW3DResult RemoveImagery(Raster::RasterSourceHandle &file_handle );
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetImageActivity(Raster::RasterSourceHandle handle, const bool activity );
+GEOWEB3DENGINE_API GW3DResult SetImageActivity(Raster::RasterSourceHandle handle, const bool activity );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets user data pointer. </summary>
@@ -292,7 +292,7 @@ GW3D_DLL GW3DResult SetImageActivity(Raster::RasterSourceHandle handle, const bo
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetUserDataPtr(Raster::RasterSourceHandle handle, void *p );
+GEOWEB3DENGINE_API GW3DResult SetUserDataPtr(Raster::RasterSourceHandle handle, void *p );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets user data pointer. </summary>
@@ -304,7 +304,7 @@ GW3D_DLL GW3DResult SetUserDataPtr(Raster::RasterSourceHandle handle, void *p );
 /// <returns>	null if it fails, else the user data pointer. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void* GetUserDataPtr( Raster::RasterSourceHandle  handle );
+GEOWEB3DENGINE_API void* GetUserDataPtr( Raster::RasterSourceHandle  handle );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets image as overlay display mode. </summary>
@@ -318,7 +318,7 @@ GW3D_DLL void* GetUserDataPtr( Raster::RasterSourceHandle  handle );
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetImageQuality(Raster::RasterSourceHandle handle, const bool quality );
+GEOWEB3DENGINE_API GW3DResult SetImageQuality(Raster::RasterSourceHandle handle, const bool quality );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets image's page level. </summary>
@@ -331,7 +331,7 @@ GW3D_DLL GW3DResult SetImageQuality(Raster::RasterSourceHandle handle, const boo
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetPageLevel(Raster::RasterSourceHandle handle, const unsigned page_level);
+GEOWEB3DENGINE_API GW3DResult SetPageLevel(Raster::RasterSourceHandle handle, const unsigned page_level);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets image priority. </summary>
@@ -344,7 +344,7 @@ GW3D_DLL GW3DResult SetPageLevel(Raster::RasterSourceHandle handle, const unsign
 /// <returns>	A GW3DResult. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetPriority(Raster::RasterSourceHandle handle, const int quality);
+GEOWEB3DENGINE_API GW3DResult SetPriority(Raster::RasterSourceHandle handle, const int quality);
 
 }
 }

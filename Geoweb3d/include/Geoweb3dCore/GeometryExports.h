@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -45,15 +45,14 @@ class GW3DCurveImpl;
 class GW3DCompoundCurveImpl;
 
 typedef int     GW3DBoolean;
-extern "C++"
-{
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	An envelope. </summary>
 ///
 /// <remarks>	An envelope is a simple container for a bounding area. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DEnvelope
+class GEOWEB3DENGINE_API GW3DEnvelope
 {
 public:
 
@@ -214,10 +213,9 @@ public:
 /// <remarks>	This is the pure virtual base class for easy access to the underlying geometry type
 /// 			 </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-class GW3D_DLL IGW3DGeometryVisitor
+class GEOWEB3DENGINE_API IGW3DGeometryVisitor
 {
 public:
-    virtual ~IGW3DGeometryVisitor() {}
 	// Visit GW3DPoint. 
 	virtual void visit(GW3DPoint*) = 0;
 	// Visit GW3DLineString. 
@@ -250,10 +248,9 @@ public:
 /// <remarks>	This is the pure virtual base class for easy access to the underlying geometry type
 /// 			 </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-class GW3D_DLL IGW3DConstGeometryVisitor
+class GEOWEB3DENGINE_API IGW3DConstGeometryVisitor
 {
 public:
-    virtual ~IGW3DConstGeometryVisitor() {}
 	// Visit GW3DPoint. 
 	virtual void visit(const GW3DPoint*) = 0;
 	// Visit GW3DLineString. 
@@ -294,7 +291,7 @@ public:
 /// 			 </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DGeometry
+class GEOWEB3DENGINE_API GW3DGeometry
 {
 public:
 
@@ -302,13 +299,13 @@ public:
     /// <summary>	Default constructor. </summary>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3DGeometry() {}
+    GW3DGeometry() {};
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Destructor. </summary>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    virtual     ~GW3DGeometry() {}
+    virtual     ~GW3DGeometry() {};
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Object allocation operator. </summary>
@@ -695,16 +692,16 @@ private:
 /// <summary>	A curve, abastract base for GW3DLineString and GW3DCompoundCurve. </summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DCurve : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DCurve : public GW3DGeometry
 {
 protected:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Default constructor not allowed. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	GW3DCurve() {}
+	GW3DCurve() {};
 };
 
-class GW3D_DLL GW3DSimpleCurve : public GW3DCurve
+class GEOWEB3DENGINE_API GW3DSimpleCurve : public GW3DCurve
 {
 
 };
@@ -713,7 +710,7 @@ class GW3D_DLL GW3DSimpleCurve : public GW3DCurve
 /// <summary>	A point. </summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DPoint : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DPoint : public GW3DGeometry
 {
 public:
 
@@ -930,7 +927,7 @@ private:
 /// <summary>	A line string. </summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DLineString  : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DLineString  : public GW3DGeometry
 {
 public:
 
@@ -1144,7 +1141,7 @@ public:
     /// <param name="padfZ">	 	(optional) List of z coordinates of points being assigned. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    void        put_Points( int nPointsIn, double * padfX, double * padfY, double *padfZ = nullptr );
+    void        put_Points( int nPointsIn, double * padfX, double * padfY, double *padfZ = 0 );
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Adds a point to the line string. </summary>
@@ -1261,7 +1258,7 @@ private:
 /// 			feature via SetGeometry() </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DLinearRing  : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DLinearRing  : public GW3DGeometry
 {
 public:
 
@@ -1466,7 +1463,7 @@ public:
     /// <param name="padfZ">	 	(optional) List of z coordinates of points being assigned. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    void        put_Points( int, double * padfX, double * padfY, double * padfZ = nullptr );
+    void        put_Points( int, double * padfX, double * padfY, double * padfZ = 0 );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Adds a point to the linear ring. </summary>
@@ -1650,13 +1647,13 @@ private:
 };
 
 
-class GW3D_DLL GW3DCircularString : public GW3DSimpleCurve
+class GEOWEB3DENGINE_API GW3DCircularString : public GW3DSimpleCurve
 {
 
 };
 
 
-class GW3D_DLL GW3DCompoundCurve : public GW3DCurve
+class GEOWEB3DENGINE_API GW3DCompoundCurve : public GW3DCurve
 {
 
 };
@@ -1670,7 +1667,7 @@ class GW3D_DLL GW3DCompoundCurve : public GW3DCurve
 /// 			</remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DPolygon : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DPolygon : public GW3DGeometry
 {
 public:
 
@@ -1882,7 +1879,7 @@ private:
 /// <remarks>	A collection of non overlapping polygons. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DMultiPolygon : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DMultiPolygon : public GW3DGeometry
 {
 public:
 
@@ -2066,7 +2063,7 @@ private:
 /// <remarks>	A collection of points.  </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DMultiPoint : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DMultiPoint : public GW3DGeometry
 {
 public:
 
@@ -2231,7 +2228,7 @@ private:
 /// <remarks>	A collection of line strings. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class GW3D_DLL GW3DMultiLineString : public GW3DGeometry
+class GEOWEB3DENGINE_API GW3DMultiLineString : public GW3DGeometry
 {
 public:
 
@@ -2408,12 +2405,12 @@ namespace GeometryFactory
     /// <returns>	A GW3DLineString. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL GW3DGeometryPtr  create_ApproximateArcAngles( double center_x, double center_y, double center_z,  
+    GEOWEB3DENGINE_API GW3DGeometryPtr  create_ApproximateArcAngles( double center_x, double center_y, double center_z,  
 		double x_radius, double y_radius, 
 		double rotation,   double start_angle, double end_angle, double max_angle_step );
 
 }
-}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Geometry Utiltiy </summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2450,7 +2447,7 @@ namespace GeometryUtility
 
 namespace SpatialDatabaseFactory
 {
-	GW3D_DLL IGW3DSpatialDatabasePtr create_SpatialDatabase();
+	GEOWEB3DENGINE_API IGW3DSpatialDatabasePtr create_SpatialDatabase();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2468,7 +2465,7 @@ namespace SmartCacheDatabaseFactory
 	/// <param name="max_connections_per_locality"> The maximum number of connections that the smart cache can create for each record </param>
 	/// <returns>	A GW3DSmartCacheDatabase. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	GW3D_DLL IGW3DSmartCacheDatabasePtr create_SmartCacheDatabase( size_t max_records, size_t max_connections_per_locality );
+	GEOWEB3DENGINE_API IGW3DSmartCacheDatabasePtr create_SmartCacheDatabase( size_t max_records, size_t max_connections_per_locality );
 }
 
 }

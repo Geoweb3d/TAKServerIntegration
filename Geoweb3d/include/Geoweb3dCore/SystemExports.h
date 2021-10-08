@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -14,7 +14,7 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	struct  GW3D_DLL IGW3DPropertyCollection;
+	struct IGW3DPropertyCollection;
 
 		/*! Helper functions for queries and commands related to the operating system */
 		namespace OS_Helpers
@@ -30,7 +30,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			
-			GW3D_DLL GW3DResult Allow_UntrustedSSL(bool yes_allow);
+			GEOWEB3DENGINE_API GW3DResult Allow_UntrustedSSL(bool yes_allow);
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets the current setting for SSL host / certificate verification  </summary>
@@ -38,7 +38,7 @@ namespace Geoweb3d
 			/// <returns> bool </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL bool IsAllowed_UntrustedSSL();
+			GEOWEB3DENGINE_API bool IsAllowed_UntrustedSSL();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Sets the user agent for HTTP requests. </summary>
@@ -48,7 +48,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult SetHTTPUserAgent( const char* user_agent );
+			GEOWEB3DENGINE_API GW3DResult SetHTTPUserAgent( const char* user_agent );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Sets HTTP proxy. </summary>
@@ -64,7 +64,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult SetHTTPProxy( const char* proxy);
+			GEOWEB3DENGINE_API GW3DResult SetHTTPProxy( const char* proxy);
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Sets HTTP proxy user password. </summary>
@@ -77,7 +77,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult SetHTTPProxyUserPassword( const char* userpassword );
+			GEOWEB3DENGINE_API GW3DResult SetHTTPProxyUserPassword( const char* userpassword );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Get data at an HTTP/HTTPS or ftp url. </summary>
@@ -85,7 +85,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL IGW3DDataBufferPtr GetHTTPFetch(const char* urlfile, GW3DResult& retval);
+			GEOWEB3DENGINE_API IGW3DDataBufferPtr GetHTTPFetch(const char* urlfile, GW3DResult& retval);
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets number of available CPUs. </summary>
@@ -95,7 +95,7 @@ namespace Geoweb3d
 			/// <returns>	The number of CPUs. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL unsigned GetNumCPUs();
+			GEOWEB3DENGINE_API unsigned GetNumCPUs();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets current memory usage. </summary>
@@ -103,7 +103,7 @@ namespace Geoweb3d
 			/// <returns>	The memory usage. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL double GetMemoryUsage();
+			GEOWEB3DENGINE_API double GetMemoryUsage();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets total physical memory in bytes. </summary>
@@ -111,7 +111,7 @@ namespace Geoweb3d
 			/// <returns>	The total physical memory in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetTotalPhysicalMemoryInBytes();
+			GEOWEB3DENGINE_API uint64_t GetTotalPhysicalMemoryInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets free physical memory in bytes. </summary>
@@ -119,7 +119,7 @@ namespace Geoweb3d
 			/// <returns>	The free physical memory in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetFreePhysicalMemoryInBytes();
+			GEOWEB3DENGINE_API uint64_t GetFreePhysicalMemoryInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets total page file size in bytes. </summary>
@@ -127,7 +127,7 @@ namespace Geoweb3d
 			/// <returns>	The total page file size in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetTotalPageFileInBytes();
+			GEOWEB3DENGINE_API uint64_t GetTotalPageFileInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets free page file in bytes. </summary>
@@ -135,7 +135,7 @@ namespace Geoweb3d
 			/// <returns>	The free page file in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetFreePageFileInBytes();
+			GEOWEB3DENGINE_API uint64_t GetFreePageFileInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets total virtual memory in bytes. </summary>
@@ -143,7 +143,7 @@ namespace Geoweb3d
 			/// <returns>	The total virtual memory in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetTotalVirtualMemoryInBytes();
+			GEOWEB3DENGINE_API uint64_t GetTotalVirtualMemoryInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets free virtual memory in bytes. </summary>
@@ -151,7 +151,7 @@ namespace Geoweb3d
 			/// <returns>	The free virtual memory in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetFreeVirtualMemoryInBytes();
+			GEOWEB3DENGINE_API uint64_t GetFreeVirtualMemoryInBytes();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets free extended memory in bytes. </summary>
@@ -159,7 +159,7 @@ namespace Geoweb3d
 			/// <returns>	The free extended memory in bytes. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL uint64_t GetFreeExtendedMemoryInBytes();
+			GEOWEB3DENGINE_API uint64_t GetFreeExtendedMemoryInBytes();
 		}
 
 		/*! Functions for creating and controlling timers */
@@ -179,7 +179,7 @@ namespace Geoweb3d
 			/// <returns>	GW3D_Ok if successful. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult CreateStopWatchTimer(/*out*/ StopWatchHandle& handle );
+			GEOWEB3DENGINE_API GW3DResult CreateStopWatchTimer(/*out*/ StopWatchHandle& handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Destroys the stopwatch timer described by handle. </summary>
@@ -192,7 +192,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult DestroyStopWatchTimer(/*in*/ StopWatchHandle& handle );
+			GEOWEB3DENGINE_API GW3DResult DestroyStopWatchTimer(/*in*/ StopWatchHandle& handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Resets the stopwatch timer described by handle. </summary>
@@ -207,7 +207,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult ResetStopWatchTimer( /*in*/ StopWatchHandle handle );
+			GEOWEB3DENGINE_API GW3DResult ResetStopWatchTimer( /*in*/ StopWatchHandle handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Pause stopwatch timer. </summary>
@@ -222,7 +222,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult PauseStopWatchTimer( /*in*/ StopWatchHandle handle );
+			GEOWEB3DENGINE_API GW3DResult PauseStopWatchTimer( /*in*/ StopWatchHandle handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Starts stopwatch timer. </summary>
@@ -235,7 +235,7 @@ namespace Geoweb3d
 			/// <returns>	A GW3DResult. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GW3DResult StartStopWatchTimer( /*in*/ StopWatchHandle handle );
+			GEOWEB3DENGINE_API GW3DResult StartStopWatchTimer( /*in*/ StopWatchHandle handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets the elapsed time. </summary>
@@ -248,7 +248,7 @@ namespace Geoweb3d
 			/// <returns>	The time. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL float GetTime( StopWatchHandle handle );
+			GEOWEB3DENGINE_API float GetTime( StopWatchHandle handle );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets average time. </summary>
@@ -265,7 +265,7 @@ namespace Geoweb3d
 			/// <returns>	The average time. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL float GetAverageTime( StopWatchHandle handle  );
+			GEOWEB3DENGINE_API float GetAverageTime( StopWatchHandle handle  );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets standard deviation time. </summary>
@@ -277,7 +277,7 @@ namespace Geoweb3d
 			/// <returns>	The standard deviation time. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL float GetStandardDeviationTime( StopWatchHandle handle  );
+			GEOWEB3DENGINE_API float GetStandardDeviationTime( StopWatchHandle handle  );
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets internal SDK time. </summary>
@@ -287,7 +287,7 @@ namespace Geoweb3d
 			/// <returns>	The internal SDK time. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL float GetInternalSDKTime( );
+			GEOWEB3DENGINE_API float GetInternalSDKTime( );
 		}
 
 		/*! Functions for querying Geoweb3d license information */
@@ -301,7 +301,7 @@ namespace Geoweb3d
 			/// <returns>	true if esri capable, false if not. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL bool	isESRICapable();
+			GEOWEB3DENGINE_API bool	isESRICapable();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Geoweb3d license details. </summary>
@@ -332,7 +332,7 @@ namespace Geoweb3d
 				};
 			};
 
-			GW3D_DLL const IGW3DPropertyCollection *GetLicenseProperty();
+			GEOWEB3DENGINE_API const IGW3DPropertyCollection *GetLicenseProperty();
 		}
 
 		/*! Information about SDK state.
@@ -349,7 +349,7 @@ namespace Geoweb3d
 			/// <returns>	The general tasks pending. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL unsigned GetGeneralTasksPending();
+			GEOWEB3DENGINE_API unsigned GetGeneralTasksPending();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets number of lidar tasks pending. </summary>
@@ -359,7 +359,7 @@ namespace Geoweb3d
 			/// <returns>	The number of lidar tasks pending. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL unsigned GetNumOfLidarTasksPending();
+			GEOWEB3DENGINE_API unsigned GetNumOfLidarTasksPending();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets 3D model tasks pending. </summary>
@@ -369,7 +369,7 @@ namespace Geoweb3d
 			/// <returns>	The number 3D model tasks pending. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL unsigned Get3DModelTasksPending();
+			GEOWEB3DENGINE_API unsigned Get3DModelTasksPending();
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Gets master frame count. </summary>
@@ -377,7 +377,7 @@ namespace Geoweb3d
 			/// <returns>	The master frame count. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL unsigned GetMasterFrameCount(); 
+			GEOWEB3DENGINE_API unsigned GetMasterFrameCount(); 
 
 
 		}
@@ -403,13 +403,13 @@ namespace Geoweb3d
 			/// <returns>	A GeoWeb3d_InfoFunction. </returns>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL GeoWeb3d_InfoFunction 	GeoWeb3dSetIOFunction(GeoWeb3d_InfoType t, GeoWeb3d_InfoFunction func);
+			GEOWEB3DENGINE_API GeoWeb3d_InfoFunction 	GeoWeb3dSetIOFunction(GeoWeb3d_InfoType t, GeoWeb3d_InfoFunction func);
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 			/// <summary>	Set default I/O functions. </summary>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL void GeoWeb3dSetDefaultIOFunctions();
+			GEOWEB3DENGINE_API void GeoWeb3dSetDefaultIOFunctions();
 		}
 
 		namespace Vector
@@ -422,7 +422,7 @@ namespace Geoweb3d
 			/// <param name="num_pages">	Number of pages to allow per frame. </param>
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			GW3D_DLL void SetNumberOfLidarPagesPerFrame( int num_pages );
+			GEOWEB3DENGINE_API void SetNumberOfLidarPagesPerFrame( int num_pages );
 
 		}
 
@@ -450,7 +450,7 @@ namespace Geoweb3d
 	//	/// <summary>	A position helper. </summary>
 	//	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//	struct  GW3D_DLL IGW3DSpline
+	//	struct IGW3DSpline
 	//	{
 	//		virtual bool     is_BeginReached() const = 0;
 	//		virtual bool     is_EndReached()   const= 0;
@@ -463,7 +463,7 @@ namespace Geoweb3d
 	//		
 	//		//TBD if we use a formal collection of GW3DControlPoint*
 
-	//		static GW3D_DLL IGW3DSplinePtr create(GW3DControlPoint* controlPoints, 
+	//		static GEOWEB3DENGINE_API IGW3DSplinePtr create(GW3DControlPoint* controlPoints, 
 	//			unsigned  num_controlPoints, 
 	//			GW3DSplineType splinetype, 
 	//		// **************************
@@ -491,7 +491,7 @@ namespace Geoweb3d
 	///// <summary>	An animation helper. </summary>
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//struct  GW3D_DLL IGW3DAnimation
+	//struct IGW3DAnimation
 	//{	
 	//	virtual void put_Spline(IGW3DSplinePtr spline, GW3DSplineAnimiation animiationtype ) = 0;
 	//	
@@ -509,7 +509,7 @@ namespace Geoweb3d
 	//	virtual void put_IsLooped(bool isLooped) = 0;
 	//	virtual void put_Speed( float speed = 1.0f) = 0;
 	//	
-	//	static GW3D_DLL IGW3DAnimationPtr create( unsigned interface_version = GEOWEB3D_INTERFACE_VERSION );
+	//	static GEOWEB3DENGINE_API IGW3DAnimationPtr create( unsigned interface_version = GEOWEB3D_INTERFACE_VERSION );
 	//};
 
 }

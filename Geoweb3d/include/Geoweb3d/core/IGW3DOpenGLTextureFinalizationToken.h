@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -22,12 +22,9 @@ namespace Geoweb3d
 	///           <see cref="Geoweb3d::IGW3DOpenGLTextureCollection::create_FinalizeToken"/>
 	///           <see cref="Geoweb3d::IGW3DVectorRepresentation::put_GW3DFinalizationToken"/>
 	/// //////////////////////////////////////////////////////////////////////////////////////////
-	extern "C++"
-	{
-		struct GW3D_DLL IGW3DOpenGLTextureFinalizationToken : public IGW3DToken
-		{
-			virtual ~IGW3DOpenGLTextureFinalizationToken() {}
 
-		}; 
-	}
+	struct IGW3DOpenGLTextureFinalizationToken : public IGW3DToken
+	{
+
+	};
 }

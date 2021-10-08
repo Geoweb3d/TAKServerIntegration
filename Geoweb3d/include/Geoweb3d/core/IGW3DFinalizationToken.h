@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -14,22 +14,18 @@
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	extern "C++"
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Image finalization token. </summary>
+	///
+	/// <remarks>	A token containing information about a palette of images. </remarks>
+	///
+	/// <see cref="Geoweb3d::IGW3DImage"/>
+	/// <see cref="Geoweb3d::IGW3DImageCollection::create_FinalizeToken"/>
+	/// <see cref="Geoweb3d::IGW3DVectorRepresentation::put_GW3DFinalizationToken"/>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	struct IGW3DFinalizationToken : public IGW3DToken
 	{
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// <summary>	Image finalization token. </summary>
-		///
-		/// <remarks>	A token containing information about a palette of images. </remarks>
-		///
-		/// <see cref="Geoweb3d::IGW3DImage"/>
-		/// <see cref="Geoweb3d::IGW3DImageCollection::create_FinalizeToken"/>
-		/// <see cref="Geoweb3d::IGW3DVectorRepresentation::put_GW3DFinalizationToken"/>
-		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		struct GW3D_DLL IGW3DFinalizationToken : public IGW3DToken
-		{
-			virtual ~IGW3DFinalizationToken() {}
-
-		};
-	}
+	};
 }

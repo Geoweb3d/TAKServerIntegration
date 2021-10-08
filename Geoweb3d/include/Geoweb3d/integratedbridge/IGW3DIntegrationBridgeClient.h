@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // GeoWeb3d SDK license under which the SDK provided.
@@ -10,8 +10,7 @@
 #pragma once
 
 #include <Geoweb3d/core/GW3DInterFace.h>
-#include <Geoweb3dCore/Geoweb3dEngine.h>
-#include <Geoweb3d/core/GW3DGuids.h>
+#include <Geoweb3dCore/GeoWeb3dEngine.h>
 #include <Geoweb3d/core/GW3DGuidsHelper.h>
 #include "IGW3DSDKVectorContext.h"
 #include "IGW3DSDKRasterContext.h"
@@ -30,13 +29,14 @@
 #define GW3DEXTERN_C    extern
 #endif
 
+GW3D_DEFINE_GUID(GUID_GEOWEB3D_SDK_INTEGRATED_BRIDGE_CLIENT, 0x52f58f47, 0x1fa0, 0x4728, 0xac, 0x72, 0x5f, 0xd3, 0x7c, 0x57, 0x8, 0x30);
 
 /*! Primary namespace */
 namespace Geoweb3d
 {
-	struct  GW3D_DLL IGW3DBridgedIdentityTest;
+	struct IGW3DBridgedIdentityTest;
 	
-	struct  GW3D_DLL IGW3DIntegrationBridgeClient : public IGW3DIBaseObject
+	struct IGW3DIntegrationBridgeClient : public IGW3DIBaseObject
 	{
 		virtual GW3DResult  InitializeLibrary() = 0;
 

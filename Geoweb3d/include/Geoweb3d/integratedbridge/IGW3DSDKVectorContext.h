@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2019, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // GeoWeb3d SDK license under which the SDK provided.
@@ -10,13 +10,13 @@
 #pragma once
 
 #include <Geoweb3d/core/GW3DInterFace.h>
-#include <Geoweb3dCore/Geoweb3dEngine.h>
+#include <Geoweb3dCore/GeoWeb3dEngine.h>
 #include <Geoweb3dCore/Geoweb3dTypes.h>
 
 namespace Geoweb3d
 {
 	///////////////////////////////////////////////////////////
-	struct  GW3D_DLL IGW3DSDKVectorContext
+	struct IGW3DSDKVectorContext
 	{
 		virtual GW3DResult close_GW3DDataSource(const char* vectordrivername, const char* data_source_name) = 0;
 

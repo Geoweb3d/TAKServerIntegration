@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -52,9 +52,7 @@ struct DemQuery
 		max_lon( 0.0 ), max_lat( 0.0 ),
 		x_pixel_size( 0.0 ), y_pixel_size( 0.0 ),
 		width( 0 ), height( 0 ),
-		driver_long_name( 0 ),
-		driver_short_name(0),
-		short_name(0)
+		driver_long_name( 0 )
 		{ }
 
 	/// <summary>	Minimum longitude of the file in WGS84 </summary>
@@ -83,12 +81,6 @@ struct DemQuery
 
 	/// <summary>	Detailed name of the driver that loaded the DEM (digital elevation model). </summary>
 	const char* driver_long_name;
-
-	/// <summary>	Short name of the driver that loaded the DEM (digital elevation model). </summary>
-	const char* driver_short_name;
-
-	/// <summary>	Short name of the file that loaded the DEM (digital elevation model). </summary>
-	const char* short_name;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,7 +164,7 @@ struct DemLoadProperties
 /// <returns>	GW3D_sOk if succeeded. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult LoadDEM( const char* url, const char* projection_file, DemLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
+GEOWEB3DENGINE_API GW3DResult LoadDEM( const char* url, const char* projection_file, DemLoadProperties const& load_props,Raster::RasterSourceHandle & handle );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Removes the dem described by handle. </summary>
@@ -184,23 +176,22 @@ GW3D_DLL GW3DResult LoadDEM( const char* url, const char* projection_file, DemLo
 /// <returns>	GW3D_sOk if succeeded. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult RemoveDEM(Raster::RasterSourceHandle & handle );
+GEOWEB3DENGINE_API GW3DResult RemoveDEM(Raster::RasterSourceHandle & handle );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets elevation at a given latitude and longitude. </summary>
 ///
 /// <param name="longitude">  	The longitude. </param>
 /// <param name="latitude">   	The latitude. </param>
-/// <param name="elevation">   	The elevation. </param>
 /// <param name="interpolate">	(optional) Whether or not to apply the interpolation we use 
 /// 							internally, versus just the pixel value.. </param>
-/// <param name="search_all_sources"> Will search all active elevation sources (not just the ones currently paged in). </param>
 ///
-/// <returns>	The result code and the elevation as a parameter ( zero if no data/invalid data 
-/// 			is found.) </returns>
+/// <returns>	The elevation at point (longitude, latitude) or zero if no data/invalid data 
+/// 			is found. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult GetElevationAt(double longitude, double latitude, /*out*/ float& elevation, /*out*/ Raster::RasterSourceHandle& handle, bool interpolate = true, bool search_all_sources = false);
+GEOWEB3DENGINE_API float GetElevationAt( double longitude, double latitude, bool interpolate = true );
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets elevation at a given latitude and longitude. </summary>
@@ -213,7 +204,7 @@ GW3D_DLL GW3DResult GetElevationAt(double longitude, double latitude, /*out*/ fl
 ///				as in today, GeometryType of the geometry will not be modified.  This may change when 
 ///				when we release the API	
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//GW3D_DLL GW3DResult FillElevations( GW3DGeometry &geometry, bool interpolate = true);
+//GEOWEB3DENGINE_API GW3DResult FillElevations( GW3DGeometry &geometry, bool interpolate = true);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets elevation at a given latitude and longitude. </summary>
@@ -225,7 +216,7 @@ GW3D_DLL GW3DResult GetElevationAt(double longitude, double latitude, /*out*/ fl
 /// <returns>	will clone your input GW3DGeometry and ensure return is 2.5, elevation(Z)
 ///				will be filled in.
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//GW3D_DLL GW3DGeometryPtr GetElevations(GW3DGeometry &geometry, bool interpolate = true);
+//GEOWEB3DENGINE_API GW3DGeometryPtr GetElevations(GW3DGeometry &geometry, bool interpolate = true);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Queries information about a DEM. </summary>
@@ -236,7 +227,7 @@ GW3D_DLL GW3DResult GetElevationAt(double longitude, double latitude, /*out*/ fl
 /// <returns>	GW3D_sOk if succeeded. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult QueryDem(Raster::RasterSourceHandle raster, DemQuery& query );
+GEOWEB3DENGINE_API GW3DResult QueryDem(Raster::RasterSourceHandle raster, DemQuery& query );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets the dem activity. </summary>
@@ -251,9 +242,8 @@ GW3D_DLL GW3DResult QueryDem(Raster::RasterSourceHandle raster, DemQuery& query 
 /// <returns>	GW3D_sOk is succeeded. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetDemActivity(Raster::RasterSourceHandle handle, const bool activity );
+GEOWEB3DENGINE_API GW3DResult SetDemActivity(Raster::RasterSourceHandle handle, const bool activity );
 
-#ifndef SWIGGING
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets a user data pointer. </summary>
 ///
@@ -266,7 +256,7 @@ GW3D_DLL GW3DResult SetDemActivity(Raster::RasterSourceHandle handle, const bool
 /// <returns>	. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL GW3DResult SetUserDataPtr(Raster::RasterSourceHandle raster, void *p );
+GEOWEB3DENGINE_API GW3DResult SetUserDataPtr(Raster::RasterSourceHandle raster, void *p );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Gets the pointer set by SetUserDataPtr. </summary>
@@ -278,8 +268,8 @@ GW3D_DLL GW3DResult SetUserDataPtr(Raster::RasterSourceHandle raster, void *p );
 /// <returns>	null if it fails, else the user data pointer. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-GW3D_DLL void* GetUserDataPtr(Raster::RasterSourceHandle raster );
-#endif
+GEOWEB3DENGINE_API void* GetUserDataPtr(Raster::RasterSourceHandle raster );
+
 
 
 	}

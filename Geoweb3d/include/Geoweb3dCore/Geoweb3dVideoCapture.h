@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //
 // Geoweb3d SDK
-// Copyright (c) Geoweb3d, 2008-2021, all rights reserved.
+// Copyright (c) Geoweb3d, 2008-2018, all rights reserved.
 //
 // This code can be used only under the rights granted to you by the specific
 // Geoweb3d SDK license under which the SDK provided.
@@ -23,90 +23,89 @@ namespace Geoweb3d
 	///
 	/// <remarks>	Experimental ONLY. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	extern "C++"
+
+	struct IGW3DWebViewWindowCallback
 	{
-		struct  GW3D_DLL IGW3DWebViewWindowCallback
-		{
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the title change event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the title change event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnTitleChange(WebViewSourceHandle browser) = 0;
+		virtual void OnTitleChange(WebViewSourceHandle browser)  = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the before resource load event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			///
-			/// <returns>	true if it succeeds, false if it fails. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the before resource load event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		///
+		/// <returns>	true if it succeeds, false if it fails. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual bool OnBeforeResourceLoad(WebViewSourceHandle browser) = 0;
+		virtual bool OnBeforeResourceLoad(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the before plugin load event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			///
-			/// <returns>	true if it succeeds, false if it fails. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the before plugin load event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		///
+		/// <returns>	true if it succeeds, false if it fails. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual bool OnBeforePluginLoad(WebViewSourceHandle browser) = 0;
+		virtual bool OnBeforePluginLoad(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the render process terminated event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the render process terminated event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnRenderProcessTerminated(WebViewSourceHandle browser) = 0;
+		virtual void OnRenderProcessTerminated(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the before popup event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			///
-			/// <returns>	true if it succeeds, false if it fails. </returns>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the before popup event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		///
+		/// <returns>	true if it succeeds, false if it fails. </returns>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual bool OnBeforePopup(WebViewSourceHandle browser) = 0;
+		virtual bool OnBeforePopup(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the before download event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the before download event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnBeforeDownload(WebViewSourceHandle browser) = 0;
+		virtual void OnBeforeDownload(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the download updated event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the download updated event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnDownloadUpdated(WebViewSourceHandle browser) = 0;
+		virtual void OnDownloadUpdated(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the load start event. </summary>
-			/// 
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the load start event. </summary>
+		/// 
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnLoadStart(WebViewSourceHandle browser) = 0;
+		virtual void OnLoadStart(WebViewSourceHandle browser) = 0;
 
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-			/// <summary>	Executes the load end event. </summary>
-			///
-			/// <param name="browser">	The browser. </param>
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>	Executes the load end event. </summary>
+		///
+		/// <param name="browser">	The browser. </param>
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			virtual void OnLoadEnd(WebViewSourceHandle browser) = 0;
-		};
-	}
-	//typedef HWND     Window;
+		virtual void OnLoadEnd(WebViewSourceHandle browser) = 0;
+	};
+
+	typedef HWND     Window;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Web initialize. </summary>
@@ -117,13 +116,13 @@ namespace Geoweb3d
 	/// <param name="pak">	  	The pak. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void Web_Initialize(const char *locales, const char *pak);
+	GEOWEB3DENGINE_API void Web_Initialize(const char *locales, const char *pak);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Web shutdown. </summary>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void Web_Shutdown();
+	GEOWEB3DENGINE_API void Web_Shutdown();
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Creates a web view window. </summary>
@@ -139,7 +138,7 @@ namespace Geoweb3d
 	/// <returns>	The new webview window. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL WebViewSourceHandle create_WebViewWindow( OSWinHandle hWndParent, const char *webviewname, IGW3DWebViewWindowCallback *pCallback, int nWidth,  int nHeight );
+	GEOWEB3DENGINE_API WebViewSourceHandle create_WebViewWindow( OSWinHandle hWndParent, const char *webviewname, IGW3DWebViewWindowCallback *pCallback, int nWidth,  int nHeight );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets an image pointer for a web view. </summary>
@@ -153,7 +152,7 @@ namespace Geoweb3d
 	/// <returns>	The web view. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL const IGW3DImageWPtr get_WebView( WebViewSourceHandle device,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
+	GEOWEB3DENGINE_API const IGW3DImageWPtr get_WebView( WebViewSourceHandle device,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Closes web view window. </summary>
@@ -161,7 +160,7 @@ namespace Geoweb3d
 	/// <param name="device">	[in,out] The device. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void close_WebViewWindow(WebViewSourceHandle &device);
+	GEOWEB3DENGINE_API void close_WebViewWindow(WebViewSourceHandle &device);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Set the web view URL. </summary>
@@ -170,20 +169,20 @@ namespace Geoweb3d
 	/// <param name="url">   	URL of the document. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void put_WebViewWindow_URL(WebViewSourceHandle device, const char *url);
+	GEOWEB3DENGINE_API void put_WebViewWindow_URL(WebViewSourceHandle device, const char *url);
 
 //SKIP-CODE-BEGIN
 
 	//mouse keybrd *note, you will get link errors if you use any of the below right now. .they are placeholders
-//	GW3D_DLL void put_WebViewWindow_JS_Call(WebViewSourceHandle device, const char *name);
+//	GEOWEB3DENGINE_API void put_WebViewWindow_JS_Call(WebViewSourceHandle device, const char *name);
 //
-//	GW3D_DLL void get_WebViewWindow_ToScreen(WebViewSourceHandle device, int &w, int &h);
-//	GW3D_DLL void put_WebViewWindow_Focus(WebViewSourceHandle device, bool focus);
+//	GEOWEB3DENGINE_API void get_WebViewWindow_ToScreen(WebViewSourceHandle device, int &w, int &h);
+//	GEOWEB3DENGINE_API void put_WebViewWindow_Focus(WebViewSourceHandle device, bool focus);
 //
-//	GW3D_DLL void inject_WebViewWindow_MouseMove(WebViewSourceHandle device, int x, int y);
-//	GW3D_DLL void inject_WebViewWindow_MouseWheel(WebViewSourceHandle device, int x, int y);
-//	GW3D_DLL void inject_WebViewWindow_MouseButton(WebViewSourceHandle device, int kind, bool up);
-//	GW3D_DLL void inject_WebViewWindow_Key(WebViewSourceHandle device, int scancode, int asymb, const char *uni, int unilen, bool up);
+//	GEOWEB3DENGINE_API void inject_WebViewWindow_MouseMove(WebViewSourceHandle device, int x, int y);
+//	GEOWEB3DENGINE_API void inject_WebViewWindow_MouseWheel(WebViewSourceHandle device, int x, int y);
+//	GEOWEB3DENGINE_API void inject_WebViewWindow_MouseButton(WebViewSourceHandle device, int kind, bool up);
+//	GEOWEB3DENGINE_API void inject_WebViewWindow_Key(WebViewSourceHandle device, int scancode, int asymb, const char *uni, int unilen, bool up);
 //;
 	/////////////////////
 	//WebBrowser End
@@ -207,7 +206,7 @@ namespace Geoweb3d
 	/// <param name="handle">	 	[out] The handle. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void create_Camera( const char* cameraName, IPCameraSourceHandle &handle );
+	GEOWEB3DENGINE_API void create_Camera( const char* cameraName, IPCameraSourceHandle &handle );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Destroys the camera described by handle. </summary>
@@ -215,7 +214,7 @@ namespace Geoweb3d
 	/// <param name="handle">	[in,out] The handle. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void destroy_Camera( IPCameraSourceHandle &handle );
+	GEOWEB3DENGINE_API void destroy_Camera( IPCameraSourceHandle &handle );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets image object for an IP Camera. </summary>
@@ -231,7 +230,7 @@ namespace Geoweb3d
 	/// <returns>	The image. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL const IGW3DImageWPtr get_Image_IP( IPCameraSourceHandle device,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
+	GEOWEB3DENGINE_API const IGW3DImageWPtr get_Image_IP( IPCameraSourceHandle device,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Connect to camera. </summary>
@@ -239,7 +238,7 @@ namespace Geoweb3d
 	/// <param name="handle">	The handle. </param>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL void put_Connect( IPCameraSourceHandle handle );
+	GEOWEB3DENGINE_API void put_Connect( IPCameraSourceHandle handle );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Disconnect from camera. </summary>
@@ -247,7 +246,7 @@ namespace Geoweb3d
     /// <param name="handle">	The handle. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_Disconnect( IPCameraSourceHandle handle );
+    GEOWEB3DENGINE_API void put_Disconnect( IPCameraSourceHandle handle );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Wait for disconnect. </summary>
@@ -255,7 +254,7 @@ namespace Geoweb3d
     /// <param name="handle">	The handle. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void wait_ForDisconnect(IPCameraSourceHandle handle );
+    GEOWEB3DENGINE_API void wait_ForDisconnect(IPCameraSourceHandle handle );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the number frames received. </summary>
@@ -265,7 +264,7 @@ namespace Geoweb3d
     /// <returns>	The number of frames received. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_NumFramesReceived(IPCameraSourceHandle handle); 
+    GEOWEB3DENGINE_API unsigned long get_NumFramesReceived(IPCameraSourceHandle handle); 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the number of bytes received. </summary>
@@ -275,7 +274,7 @@ namespace Geoweb3d
     /// <returns>	The number of bytes received. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_NumBytesReceived( IPCameraSourceHandle handle );  
+    GEOWEB3DENGINE_API unsigned long get_NumBytesReceived( IPCameraSourceHandle handle );  
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets bit rate. </summary>
@@ -285,7 +284,7 @@ namespace Geoweb3d
     /// <returns>	The bit rate. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL float get_BitRate(IPCameraSourceHandle handle );
+    GEOWEB3DENGINE_API float get_BitRate(IPCameraSourceHandle handle );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets camera name. </summary>
@@ -295,7 +294,7 @@ namespace Geoweb3d
     /// <returns>	the camera name. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL const char* get_CameraName( IPCameraSourceHandle handle );
+    GEOWEB3DENGINE_API const char* get_CameraName( IPCameraSourceHandle handle );
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets the URI. </summary>
@@ -306,7 +305,7 @@ namespace Geoweb3d
     /// <param name="uri">		The URI. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_URI(IPCameraSourceHandle handle, const char* uri);
+    GEOWEB3DENGINE_API void put_URI(IPCameraSourceHandle handle, const char* uri);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the URI. </summary>
@@ -316,7 +315,7 @@ namespace Geoweb3d
     /// <returns>	null if it fails, else the URI. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL const char* get_URI(IPCameraSourceHandle handle );
+    GEOWEB3DENGINE_API const char* get_URI(IPCameraSourceHandle handle );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets the host segment of the URI. </summary>
@@ -326,7 +325,7 @@ namespace Geoweb3d
 	/// <returns>	null if it fails, else the host. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL const char* get_Host(IPCameraSourceHandle handle);
+	GEOWEB3DENGINE_API const char* get_Host(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets a query segment of the URI. </summary>
@@ -336,7 +335,7 @@ namespace Geoweb3d
     /// <returns>	null if it fails, else the query. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL const char* get_Query(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API const char* get_Query(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the port segment of the URI. </summary>
@@ -346,7 +345,7 @@ namespace Geoweb3d
     /// <returns>	The port. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL int get_Port(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API int get_Port(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the fragment segment of the URI. </summary>
@@ -356,7 +355,7 @@ namespace Geoweb3d
     /// <returns>	null if it fails, else the fragment. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL const char* get_Fragment(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API const char* get_Fragment(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets a cookie. </summary>
@@ -366,7 +365,7 @@ namespace Geoweb3d
     /// <param name="value"> 	The value. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_Cookie(IPCameraSourceHandle handle, const char* key, const char* value);
+    GEOWEB3DENGINE_API void put_Cookie(IPCameraSourceHandle handle, const char* key, const char* value);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Erase a cookie. </summary>
@@ -375,7 +374,7 @@ namespace Geoweb3d
     /// <param name="key">   	The key. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void erase_Cookie(IPCameraSourceHandle handle, const char* key);
+    GEOWEB3DENGINE_API void erase_Cookie(IPCameraSourceHandle handle, const char* key);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets a cookie value. </summary>
@@ -386,7 +385,7 @@ namespace Geoweb3d
     /// <returns>	null if it fails, else the cookie. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL const char* get_Cookie(IPCameraSourceHandle handle, const char* key);
+    GEOWEB3DENGINE_API const char* get_Cookie(IPCameraSourceHandle handle, const char* key);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets the username for the IP camera. </summary>
@@ -395,7 +394,7 @@ namespace Geoweb3d
     /// <param name="username">	The username. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_Username(IPCameraSourceHandle handle, const char* username);
+    GEOWEB3DENGINE_API void put_Username(IPCameraSourceHandle handle, const char* username);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets the password for the IP camera. </summary>
@@ -404,7 +403,7 @@ namespace Geoweb3d
     /// <param name="password">	The password. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_Password(IPCameraSourceHandle handle, const char* password);
+    GEOWEB3DENGINE_API void put_Password(IPCameraSourceHandle handle, const char* password);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets the username. </summary>
@@ -414,7 +413,7 @@ namespace Geoweb3d
 	/// <returns>	null if it fails, else the username. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL const char* get_Username(IPCameraSourceHandle handle);
+	GEOWEB3DENGINE_API const char* get_Username(IPCameraSourceHandle handle);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Gets the password. </summary>
@@ -424,7 +423,7 @@ namespace Geoweb3d
 	/// <returns>	null if it fails, else the password. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	GW3D_DLL const char* get_Password(IPCameraSourceHandle handle);
+	GEOWEB3DENGINE_API const char* get_Password(IPCameraSourceHandle handle);
 
 
 	// proxy server (note, 
@@ -439,7 +438,7 @@ namespace Geoweb3d
     /// <param name="useProxy">	true to use proxy. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_UseProxy(IPCameraSourceHandle handle, bool useProxy);
+    GEOWEB3DENGINE_API void put_UseProxy(IPCameraSourceHandle handle, bool useProxy);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets whether proxy is used. </summary>
@@ -449,7 +448,7 @@ namespace Geoweb3d
     /// <returns>	true if used, false if not used. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL bool get_UseProxy(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API bool get_UseProxy(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Query if IP Camera is connected. </summary>
@@ -459,7 +458,7 @@ namespace Geoweb3d
     /// <returns>	true if connected, false if not. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL bool is_Connected(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API bool is_Connected(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Query if IP Camera connection has failed. </summary>
@@ -469,7 +468,7 @@ namespace Geoweb3d
     /// <returns>	true if connection failed, false if not. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL bool has_ConnectionFailed(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API bool has_ConnectionFailed(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets reconnect timeout. </summary>
@@ -478,7 +477,7 @@ namespace Geoweb3d
     /// <param name="ms">	 	The timeout in milliseconds. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_ReconnectTimeout(IPCameraSourceHandle handle, unsigned long ms);
+    GEOWEB3DENGINE_API void put_ReconnectTimeout(IPCameraSourceHandle handle, unsigned long ms);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets reconnect timeout. </summary>
@@ -488,7 +487,7 @@ namespace Geoweb3d
     /// <returns>	The reconnect timeout in milliseconds. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_ReconnectTimeout(IPCameraSourceHandle handle); 
+    GEOWEB3DENGINE_API unsigned long get_ReconnectTimeout(IPCameraSourceHandle handle); 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Query if needs reconnect. </summary>
@@ -498,7 +497,7 @@ namespace Geoweb3d
     /// <returns>	true if it needs reconnect, false if not. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL bool get_NeedsReconnect(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API bool get_NeedsReconnect(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets automatic reconnect. </summary>
@@ -508,7 +507,7 @@ namespace Geoweb3d
     /// <returns>	true if it succeeds, false if it fails. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL bool get_AutoReconnect(IPCameraSourceHandle handle) ;
+    GEOWEB3DENGINE_API bool get_AutoReconnect(IPCameraSourceHandle handle) ;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets reconnect count. </summary>
@@ -518,7 +517,7 @@ namespace Geoweb3d
     /// <returns>	The reconnect count. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL  unsigned long get_ReconnectCount(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API  unsigned long get_ReconnectCount(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets maximum reconnects. </summary>
@@ -528,7 +527,7 @@ namespace Geoweb3d
     /// <returns>	The maximum reconnects. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_MaxReconnects(IPCameraSourceHandle handle);
+    GEOWEB3DENGINE_API unsigned long get_MaxReconnects(IPCameraSourceHandle handle);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets maximum reconnects. </summary>
@@ -537,7 +536,7 @@ namespace Geoweb3d
     /// <param name="num">   	Number of reconnects allowed. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_MaxReconnects(IPCameraSourceHandle handle, unsigned long num);
+    GEOWEB3DENGINE_API void put_MaxReconnects(IPCameraSourceHandle handle, unsigned long num);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets automatic retry delay. </summary>
@@ -545,7 +544,7 @@ namespace Geoweb3d
     /// <returns>	The automatic retry delay. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_AutoRetryDelay(); 
+    GEOWEB3DENGINE_API unsigned long get_AutoRetryDelay(); 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Sets automatic retry delay. </summary>
@@ -554,7 +553,7 @@ namespace Geoweb3d
     /// <param name="delay_ms">	The delay in milliseconds. </param>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL void put_AutoRetryDelay(IPCameraSourceHandle handle, unsigned long delay_ms);
+    GEOWEB3DENGINE_API void put_AutoRetryDelay(IPCameraSourceHandle handle, unsigned long delay_ms);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets the next automatic retry time. </summary>
@@ -564,7 +563,7 @@ namespace Geoweb3d
     /// <returns>	The next automatic retry time. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_NextAutoRetryTime(IPCameraSourceHandle handle ); 
+    GEOWEB3DENGINE_API unsigned long get_NextAutoRetryTime(IPCameraSourceHandle handle ); 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>	Gets time until next automatic retry. </summary>
@@ -574,7 +573,7 @@ namespace Geoweb3d
     /// <returns>	The time until next automatic retry. </returns>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    GW3D_DLL unsigned long get_TimeTillNextAutoRetry(IPCameraSourceHandle handle); 
+    GEOWEB3DENGINE_API unsigned long get_TimeTillNextAutoRetry(IPCameraSourceHandle handle); 
 
 //SKIP-CODE-BEGIN
  
@@ -695,7 +694,7 @@ namespace Geoweb3d
 		/// <returns>	The image. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL const IGW3DImageWPtr get_Image( unsigned device_index,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
+		GEOWEB3DENGINE_API const IGW3DImageWPtr get_Image( unsigned device_index,  IGW3DImageCollectionPtr &collection, GW3DResult &result );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Scan the local machine for video capture devices. </summary>
@@ -708,7 +707,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult ScanVideoDevices( /*out*/SystemCaptureDeviceInfo &system_info);
+		GEOWEB3DENGINE_API GW3DResult ScanVideoDevices( /*out*/SystemCaptureDeviceInfo &system_info);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Gets device friendly name. </summary>
@@ -720,7 +719,7 @@ namespace Geoweb3d
 		/// <returns>	null if it fails, else the device friendly name. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL const char	*GetDeviceFriendlyName(unsigned device_index);
+		GEOWEB3DENGINE_API const char	*GetDeviceFriendlyName(unsigned device_index);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Gets device path. </summary>
@@ -732,7 +731,7 @@ namespace Geoweb3d
 		/// <returns>	null if it fails, else the device path. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL const char	*GetDevicePath(unsigned device_index);
+		GEOWEB3DENGINE_API const char	*GetDevicePath(unsigned device_index);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets the ideal framerate. </summary>
@@ -747,7 +746,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult SetIdealFramerate( unsigned device_index, int idealFramerate );
+		GEOWEB3DENGINE_API GW3DResult SetIdealFramerate( unsigned device_index, int idealFramerate );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets up the device. </summary>
@@ -763,7 +762,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	GW3DResult SetupDevice(unsigned device_index);
+		GEOWEB3DENGINE_API	GW3DResult SetupDevice(unsigned device_index);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets up the device. </summary>
@@ -781,7 +780,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	GW3DResult SetupDevice(unsigned device_index, int w, int h);
+		GEOWEB3DENGINE_API	GW3DResult SetupDevice(unsigned device_index, int w, int h);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets up the device. </summary>
@@ -802,7 +801,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	GW3DResult SetupDevice(unsigned device_index, PhysicalConnection connection);	
+		GEOWEB3DENGINE_API	GW3DResult SetupDevice(unsigned device_index, PhysicalConnection connection);	
 
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -825,7 +824,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	GW3DResult SetupDevice(unsigned device_index, int w, int h, PhysicalConnection connection); 
+		GEOWEB3DENGINE_API	GW3DResult SetupDevice(unsigned device_index, int w, int h, PhysicalConnection connection); 
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Sets up the device from video URL. </summary>
@@ -842,7 +841,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	GW3DResult SetupDeviceFromVideoUrl(const char* path, unsigned& device_index); 
+		GEOWEB3DENGINE_API	GW3DResult SetupDeviceFromVideoUrl(const char* path, unsigned& device_index); 
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Specify the video format preference for a video capture device. </summary>
@@ -858,7 +857,7 @@ namespace Geoweb3d
 		///	<see> GetCurrentWidthAndHeight"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult SetFormat(unsigned device_index, VideoFormats format);
+		GEOWEB3DENGINE_API GW3DResult SetFormat(unsigned device_index, VideoFormats format);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Query if device is set up. </summary>
@@ -870,7 +869,7 @@ namespace Geoweb3d
 		/// <see> SetupDevice"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL	bool isDeviceSetup( unsigned device_index  );
+		GEOWEB3DENGINE_API	bool isDeviceSetup( unsigned device_index  );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Stops a device. </summary>
@@ -884,7 +883,7 @@ namespace Geoweb3d
 		/// <see> RestartDevice"/>
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult StopDevice( unsigned device_index );
+		GEOWEB3DENGINE_API GW3DResult StopDevice( unsigned device_index );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Restart device. </summary>
@@ -900,7 +899,7 @@ namespace Geoweb3d
 		/// <see cref="StopDevice"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult RestartDevice( unsigned device_index );
+		GEOWEB3DENGINE_API GW3DResult RestartDevice( unsigned device_index );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Determine if we can step. </summary>
@@ -921,7 +920,7 @@ namespace Geoweb3d
 		/// <see cref="Step"/>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL bool CanStep( unsigned device_index, int num_frames, int reserved );
+		GEOWEB3DENGINE_API bool CanStep( unsigned device_index, int num_frames, int reserved );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Step a video device forward a given number of frames. </summary>
@@ -934,7 +933,7 @@ namespace Geoweb3d
 		/// <see cref="CanStep"/>
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult Step( unsigned device_index,int num_frames );
+		GEOWEB3DENGINE_API GW3DResult Step( unsigned device_index,int num_frames );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Shows the settings window. </summary>
@@ -947,8 +946,7 @@ namespace Geoweb3d
 		/// <returns>	A GW3DResult. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult ShowSettingsWindow(OSWinHandle parent, unsigned device_index );
-
+		GEOWEB3DENGINE_API GW3DResult ShowSettingsWindow(Window parent, unsigned device_index );
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Gets current width and height. </summary>
@@ -966,7 +964,7 @@ namespace Geoweb3d
 		/// <returns>	The current width and height. </returns>
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		GW3D_DLL GW3DResult GetCurrentWidthAndHeight(unsigned device_index, unsigned &width, unsigned &height );
+		GEOWEB3DENGINE_API GW3DResult GetCurrentWidthAndHeight(unsigned device_index, unsigned &width, unsigned &height );
 
 	}
 }
